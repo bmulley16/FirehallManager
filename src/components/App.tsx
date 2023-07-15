@@ -25,7 +25,14 @@ import { foo } from "./moduleB";
 function App() {
   return (
     <>
-      <img src={assets.images.mainBg} alt="" />
+      <div className="flex justify-center items-center h-screen">
+        <div
+          className="bg-cover bg-center h-full w-full"
+          style={{
+            backgroundImage: `url(${assets.images.mainBg})`,
+          }}
+        ></div>
+      </div>
       <HomepageBanner></HomepageBanner>
     </>
   );
