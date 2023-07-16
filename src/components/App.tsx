@@ -4,6 +4,8 @@ import * as assets from "../assets";
 // @ts-ignore
 import HomepageBanner from "./banners/homepagebanner";
 
+import BackgroundImages from "./backgroundImages";
+
 //Default import
 // import _something_ from ""
 import bar from "./moduleA";
@@ -25,15 +27,9 @@ import { foo } from "./moduleB";
 function App() {
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
-        <div
-          className="bg-cover bg-center h-full w-full"
-          style={{
-            backgroundImage: `url(${assets.images.mainBg})`,
-          }}
-        ></div>
-      </div>
-      <HomepageBanner></HomepageBanner>
+      <BackgroundImages>
+        <HomepageBanner></HomepageBanner>
+      </BackgroundImages>
     </>
   );
 }
