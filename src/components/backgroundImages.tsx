@@ -1,16 +1,16 @@
-import * as assets from "../assets";
+// import * as assets from "../assets";
 
-function BackgroundImages() {
-  return (
-    <div className="flex justify-center items-center h-screen">
-      <div
-        className="bg-cover bg-center h-full w-full"
-        style={{
-          backgroundImage: `url(${assets.images.mainBg})`,
-        }}
-      ></div>
-    </div>
-  );
-}
+// function BackgroundImages(props: any) {
+//   return (
+//     <div className="flex justify-center items-center h-screen">
+//       <div
+//         className="bg-cover bg-center  h-full w-full bg-no-repeat"
+//         style={{
+//           backgroundImage: `url(${assets.images.mainBg})`,
+//         }}
+//       ></div>
+//     </div>
+//   );
+// }
 
-export default BackgroundImages;
+// export default BackgroundImages;
