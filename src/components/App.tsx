@@ -4,16 +4,38 @@ import * as assets from "../assets";
 // @ts-ignore
 import HomepageBanner from "./banners/homepagebanner";
 
+import BackgroundImages from "./backgroundImages";
+
+//Default import
+// import _something_ from ""
+import bar from "./moduleA";
+
+const a = "double";
+const b = "single";
+const c = `backticks ${b}`;
+
+console.log(`foo = ${bar}`);
+
+//namespaced import, import all as
+// import * as _something_ from ""
+// moduleB = { foo: foo, bar: bar }
+import * as moduleB from "./moduleB";
+
+//
+import { foo } from "./moduleB";
+
 function App() {
   return (
     <>
-      <div
-        style={{
-          backgroundImage: `url(C:\Projects\FirehallManager\Images)`,
-        }}
-        className=" bg-cover min-h-full min-w-full bg-center bg-fixed"
-      >
-        Hello world
+      <div className="flex justify-center items-center h-screen">
+        <div
+          className="bg-cover bg-center  h-full w-full bg-no-repeat"
+          style={{
+            backgroundImage: `url(${assets.images.mainBg})`,
+          }}
+        >
+          <HomepageBanner></HomepageBanner>
+        </div>
       </div>
     </>
   );
