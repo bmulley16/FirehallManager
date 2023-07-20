@@ -27,9 +27,9 @@ import { foo } from "./moduleB";
 function App() {
   return (
     <>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen bg-gradient-to-r from-black to-white">
         <div
-          className="bg-cover bg-center  h-full w-full bg-no-repeat"
+          className="bg-cover bg-center  h-full w-full bg-no-repeat mix-blend-overlay"
           style={{
             backgroundImage: `url(${assets.images.mainBg})`,
           }}
