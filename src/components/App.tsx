@@ -16,8 +16,6 @@ function App() {
           <HomepageBanner></HomepageBanner>
         </div>
       </div>
-
-      <LoginPage></LoginPage>
     </>
   );
 }
