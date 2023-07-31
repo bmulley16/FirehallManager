@@ -1,6 +1,6 @@
 import * as assets from "../assets";
 // import { images } from '../assets'
-
+import LoginPage from "./pages.tsx/loginpage";
 // @ts-ignore
 import HomepageBanner from "./banners/homepagebanner";
 
@@ -16,6 +16,8 @@ function App() {
           <HomepageBanner></HomepageBanner>
         </div>
       </div>
+
+      <LoginPage></LoginPage>
     </>
   );
 }
