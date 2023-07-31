@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/App";
-import LoginPage from "../routes/root";
+import LoginPage from "../components/pages.tsx/loginpage";
 function Pathways() {
   return (
     <Routes>
