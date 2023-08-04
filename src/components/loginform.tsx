@@ -1,7 +1,8 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
+import * as api from "../utils/api";
 
 function LoginForm() {
-  const [inputValue, setInputValue] = useState("");
+  const [usernameinputValue, setInputValue] = useState("");
 
   const [passwordInputValue, setPasswordInputValue] = useState("");
 
@@ -13,29 +14,40 @@ function LoginForm() {
     setInputValue(event.target.value);
   };
 
-  console.log(inputValue);
+  console.log(usernameinputValue);
+  console.log(passwordInputValue);
+
+  const user = api.signIn(usernameinputValue, passwordInputValue);
+
+  if (user) {
+    // do somethign with user
+  }
+
+  // if not exists, then its invalid (wrong password, no user, etc)
 
   return (
     <>
-      <form>
-        <h1>Welcome! Sign in or up Bellow:</h1>
-        <label htmlFor="email-input"> Input your Account Email: </label>
-        <input
-          type="email"
-          id="email-input"
-          placeholder="Johnsmith123@gmail.com"
-          onChange={handleChangeEmail}
-          value={inputValue}
-        ></input>
-
-        <label htmlFor="password"> Input your Password: </label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Password"
-          onChange={handleChangePassword}
-          value={passwordInputValue}
-        ></input>
+      <form className=" flex-column ">
+        <div>
+          <label htmlFor="email-input"> Input your Account Email: </label>
+          <input
+            type="email"
+            id="email-input"
+            placeholder="Johnsmith123@gmail.com"
+            onChange={handleChangeEmail}
+            value={usernameinputValue}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="password"> Input your Password: </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            onChange={handleChangePassword}
+            value={passwordInputValue}
+          ></input>
+        </div>
       </form>
     </>
   );

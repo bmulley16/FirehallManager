@@ -4,7 +4,6 @@ import * as assets from "../assets";
 
 // @ts-ignore
 import HomepageBanner from "./banners/homepagebanner";
-import LoginPage from "./pages.tsx/loginpage";
 // @ts-ignore
 // import { Route, Routes } from "react-router-dom";
 
