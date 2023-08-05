@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as api from "../utils/api";
-
+import LoginSubmitButton from "./banners/loginButton";
 function LoginForm() {
   const [usernameinputValue, setInputValue] = useState("");
 
@@ -27,19 +27,17 @@ function LoginForm() {
 
   return (
     <>
-      <form className=" flex-column ">
-        <div>
-          <label htmlFor="email-input"> Input your Account Email: </label>
+      <div className="grow m-auto">
+        <h1> Login to Your Account </h1>
+        <form className=" ">
           <input
             type="email"
             id="email-input"
-            placeholder="Johnsmith123@gmail.com"
+            placeholder="Email"
             onChange={handleChangeEmail}
             value={usernameinputValue}
           ></input>
-        </div>
-        <div>
-          <label htmlFor="password"> Input your Password: </label>
+
           <input
             type="password"
             id="password"
@@ -47,8 +45,10 @@ function LoginForm() {
             onChange={handleChangePassword}
             value={passwordInputValue}
           ></input>
-        </div>
-      </form>
+
+          <LoginSubmitButton></LoginSubmitButton>
+        </form>
+      </div>
     </>
   );
 }
