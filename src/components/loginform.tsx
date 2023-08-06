@@ -27,9 +27,12 @@ function LoginForm() {
 
   return (
     <>
-      <div className="grow m-auto">
-        <h1> Login to Your Account </h1>
-        <form className=" ">
+      <div className="grow m-auto ">
+        <h1 className="font-mono text-[40px] font-extrabold ">
+          {" "}
+          Login to Your Account{" "}
+        </h1>
+        <form className="flex-column">
           <input
             type="email"
             id="email-input"
