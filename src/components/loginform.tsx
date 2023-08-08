@@ -8,14 +8,13 @@ function LoginForm() {
 
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInputValue(event.target.value);
+    console.log(passwordInputValue);
   };
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
+    console.log(usernameinputValue);
   };
-
-  console.log(usernameinputValue);
-  console.log(passwordInputValue);
 
   const user = api.signIn(usernameinputValue, passwordInputValue);
 

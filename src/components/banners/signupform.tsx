@@ -1,7 +1,7 @@
 function Signup() {
   return (
-    <div className="bg-[url('src\\assets\\loginScreenBackground.jpg')] max-w-full">
-      <div className=" flex-column mt-[47%]  ">
+    <div className="bg-[url('src\\assets\\loginScreenBackground.jpg')] bg-center bg-no-repeat bg-cover max-w-full pt-[50vh] ">
+      <div className=" flex-column    ">
         <h1>New Here?</h1>
 
         <p>
