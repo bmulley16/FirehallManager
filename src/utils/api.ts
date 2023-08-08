@@ -12,16 +12,6 @@ export function signIn(username: string, password: string): User | null {
       username: "bmulley",
       password: "12345",
     },
-
-    {
-      username: "jwood",
-      password: "54321",
-    },
-
-    {
-      username: "iedison",
-      password: "1234567",
-    },
   ];
 
   localStorage.getItem("users");
