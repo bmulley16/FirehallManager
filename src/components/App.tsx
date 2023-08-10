@@ -1,7 +1,8 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 // @ts-ignore
 import * as assets from "../assets";
 // import { images } from '../assets'
-
 // @ts-ignore
 import HomepageBanner from "./banners/homepagebanner";
 // @ts-ignore

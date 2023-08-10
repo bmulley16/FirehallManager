@@ -16,7 +16,7 @@ const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
   console.log(usernameinputValue);
 };
 
-function storingCreatedAccounts() {
+const createdAccounts = function storingCreatedAccounts() {
   localStorage.setItem(
     "users",
     JSON.stringify({
@@ -24,7 +24,7 @@ function storingCreatedAccounts() {
       password: { passwordInputValue },
     })
   );
-}
+};
 
 function Signup() {
   return (
@@ -56,6 +56,7 @@ function Signup() {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
+          onClick={createdAccounts}
         >
           Sign Up
         </button>

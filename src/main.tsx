@@ -16,10 +16,7 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
 
-  {
-    path: "/myaccount",
-    // element:
-  },
+  {},
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
