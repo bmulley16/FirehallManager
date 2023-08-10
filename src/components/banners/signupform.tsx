@@ -16,6 +16,16 @@ const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
   console.log(usernameinputValue);
 };
 
+function storingCreatedAccounts() {
+  localStorage.setItem(
+    "users",
+    JSON.stringify({
+      username: { usernameinputValue },
+      password: { passwordInputValue },
+    })
+  );
+}
+
 function Signup() {
   return (
     <div className="bg-[url('src\\assets\\loginScreenBackground.jpg')] bg-center bg-no-repeat bg-cover max-w-full pt-[50vh] ">
@@ -46,7 +56,6 @@ function Signup() {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
-          // onClick={}
         >
           Sign Up
         </button>
