@@ -35,7 +35,7 @@ function Signup() {
         <p>
           Sign up and discover how Emergico's framework can benefit your agency!{" "}
         </p>
-        <form className="flex-column">
+        <form className="flex-column" onSubmit={createdAccounts}>
           <input
             type="email"
             id="email-input"
@@ -56,7 +56,6 @@ function Signup() {
         <button
           type="submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
-          onClick={createdAccounts}
         >
           Sign Up
         </button>
