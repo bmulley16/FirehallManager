@@ -1,3 +1,3 @@
-function accountLoginPage() {
+export function AccountLoginPage() {
   return <></>;
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as api from "../utils/api";
 import LoginSubmitButton from "./banners/loginButton";
+import { AccountLoginPage } from "./pages/accountLandingPage";
 function LoginForm() {
   const [usernameinputValue, setInputValue] = useState("");
 
@@ -19,7 +20,7 @@ function LoginForm() {
   const user = api.signIn(usernameinputValue, passwordInputValue);
 
   if (user) {
-    // do somethign with user
+    <AccountLoginPage></AccountLoginPage>;
   }
 
   // if not exists, then its invalid (wrong password, no user, etc)
