@@ -9,21 +9,18 @@ function LoginForm() {
 
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInputValue(event.target.value);
-    console.log(passwordInputValue);
   };
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
-    console.log(usernameinputValue);
   };
 
   const user = api.signIn(usernameinputValue, passwordInputValue);
 
   if (user) {
     <AccountLoginPage></AccountLoginPage>;
+  } else {
   }
-
-  // if not exists, then its invalid (wrong password, no user, etc)
 
   return (
     <>
