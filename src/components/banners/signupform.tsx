@@ -2,21 +2,26 @@ const api = "";
 
 import { useState } from "react";
 
-const [usernameinputValue, setInputValue] = useState("");
-
-const [passwordInputValue, setPasswordInputValue] = useState("");
-
 const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [usernameinputValue, setInputValue] = useState("");
+
+  const [passwordInputValue, setPasswordInputValue] = useState("");
   setPasswordInputValue(event.target.value);
   console.log(passwordInputValue);
 };
 
 const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const [usernameinputValue, setInputValue] = useState("");
+
+  const [passwordInputValue, setPasswordInputValue] = useState("");
   setInputValue(event.target.value);
   console.log(usernameinputValue);
 };
 
 const createdAccounts = function storingCreatedAccounts() {
+  const [usernameinputValue, setInputValue] = useState("");
+
+  const [passwordInputValue, setPasswordInputValue] = useState("");
   localStorage.setItem(
     "users",
     JSON.stringify({
@@ -27,6 +32,9 @@ const createdAccounts = function storingCreatedAccounts() {
 };
 
 function Signup() {
+  const [usernameinputValue, setInputValue] = useState("");
+
+  const [passwordInputValue, setPasswordInputValue] = useState("");
   return (
     <div className="bg-[url('src\\assets\\loginScreenBackground.jpg')] bg-center bg-no-repeat bg-cover max-w-full pt-[50vh] ">
       <div className=" flex-column    ">
