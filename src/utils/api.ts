@@ -7,28 +7,14 @@ interface User {
 }
 
 export function signUp(username: string, password: string): User {
-  // [
-  //   {
-  //     username: "bmulley",
-  //     password: "12345",
-  //   },
-  // ];
-
-  // localStorage.getItem("users");
-
-  // return {
-  //   username: "",
-  //   password: "",
-  // };
-
-  const users = localStorage.get("users");
+  const users = localStorage.getItem("users");
 
   const user: User = {
     username: username,
     password: password,
   };
 
-  const newUsers = [...users, user];
+  const newUsers = [...[users], user];
 
   localStorage.setItem("users", JSON.stringify(newUsers));
 
@@ -39,13 +25,14 @@ export function signUp(username: string, password: string): User {
 // parse => {username: "bob"}
 
 export function signIn(username: string, password: string): User | null {
-  const users: User[] = JSON.parse(localStorage.get("users"));
+  if (signIn === null) {
+  } else {
+    const users: User[] = JSON.parse(localStorage.getItem("users"));
 
-  // check for null
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
 
-  const user = users.find(
-    (user) => user.username === username && user.password === password
-  );
-
-  return user;
+    return user;
+  }
 }
