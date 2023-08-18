@@ -25,14 +25,17 @@ export function signUp(username: string, password: string): User {
 // parse => {username: "bob"}
 
 export function signIn(username: string, password: string): User | null {
-  if (signIn === null) {
-  } else {
-    const users: User[] = JSON.parse(localStorage.getItem("users"));
+  const nullCheck = localStorage.getItem("users");
 
-    const user = users.find(
+  if (nullCheck === null) {
+    return null;
+  } else {
+    const users: User[] = JSON.parse(nullCheck);
+
+    const user: User | undefined = users.find(
       (user) => user.username === username && user.password === password
     );
 
-    return user;
+    return user || null;
   }
 }
