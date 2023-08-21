@@ -8,13 +8,14 @@ interface User {
 
 export function signUp(username: string, password: string): User {
   const users = localStorage.getItem("users");
+  const parsedUsers: User[] = users ? JSON.parse(users) : [];
 
   const user: User = {
     username: username,
     password: password,
   };
 
-  const newUsers = [...[users], user];
+  const newUsers = [...parsedUsers, user];
 
   localStorage.setItem("users", JSON.stringify(newUsers));
 
