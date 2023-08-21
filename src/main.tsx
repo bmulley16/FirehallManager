@@ -5,7 +5,7 @@ import "./index.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./components/pages/loginpage.tsx";
-import { AccountLoginPage } from "./components/pages/accountLandingPage.tsx";
+import AccountLandingPage from "./components/pages/accountLandingPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
 
   {
     path: `/account`,
-    element: <AccountLoginPage />,
+    element: <AccountLandingPage />,
   },
 
   {},
