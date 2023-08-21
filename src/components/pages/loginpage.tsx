@@ -1,6 +1,5 @@
 import LoginForm from "../loginform";
 import Signup from "../banners/signupform";
-import LoginSubmitButton from "../banners/loginButton";
 
 function LoginPage() {
   return (

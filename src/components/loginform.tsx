@@ -1,7 +1,10 @@
+import React from "react";
+
 import { useState } from "react";
 import * as api from "../utils/api";
-import LoginSubmitButton from "./banners/loginButton";
+import { signIn } from "../utils/api";
 import { AccountLoginPage } from "./pages/accountLandingPage";
+import { Navigate, useNavigate } from "react-router-dom";
 function LoginForm() {
   const [usernameinputValue, setInputValue] = useState("");
 
@@ -16,11 +19,14 @@ function LoginForm() {
   };
 
   const user = api.signIn(usernameinputValue, passwordInputValue);
-
-  if (user) {
-    <AccountLoginPage></AccountLoginPage>;
-  } else {
-  }
+  const navigate = useNavigate();
+  const signInVerification = () => {
+    if (user) {
+      navigate("/account");
+    } else {
+      alert("User does not exist");
+    }
+  };
 
   return (
     <>
@@ -29,7 +35,7 @@ function LoginForm() {
           {" "}
           Login to Your Account{" "}
         </h1>
-        <form className="flex-column">
+        <form className="flex-column" onSubmit={signInVerification}>
           <input
             type="email"
             id="email-input"
@@ -46,7 +52,12 @@ function LoginForm() {
             value={passwordInputValue}
           ></input>
 
-          <LoginSubmitButton></LoginSubmitButton>
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
+          >
+            Sign In
+          </button>
         </form>
       </div>
     </>

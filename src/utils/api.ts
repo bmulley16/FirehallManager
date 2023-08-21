@@ -36,6 +36,10 @@ export function signIn(username: string, password: string): User | null {
       (user) => user.username === username && user.password === password
     );
 
-    return user || null;
+    if (user) {
+      return user;
+    } else {
+      return null;
+    }
   }
 }

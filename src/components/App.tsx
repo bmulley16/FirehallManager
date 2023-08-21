@@ -6,7 +6,6 @@ import * as assets from "../assets";
 // @ts-ignore
 import HomepageBanner from "./banners/homepagebanner";
 // @ts-ignore
-// import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
