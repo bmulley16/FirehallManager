@@ -1,3 +1,9 @@
+import { ProfileAside } from "../accountPageAside";
+
 export function Profile() {
-  return <div> hello qorld</div>;
+  return (
+    <div className="flex">
+      <ProfileAside></ProfileAside>
+    </div>
+  );
 }
