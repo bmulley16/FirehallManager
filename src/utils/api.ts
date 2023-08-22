@@ -43,4 +43,18 @@ export function signIn(username: string, password: string): User | null {
       return null;
     }
   }
+
+  // const lsUsers = localStorage.getItem('users');
+
+  // if (!lsUsers) {
+  //   return null
+  // }
+
+  // const users: User[] = JSON.parse(lsUsers);
+
+  // const user: User | undefined = users.find(
+  //   (user) => user.username === username && user.password === password
+  // );
+
+  // return user ? user : null
 }

@@ -1,6 +1,6 @@
 export function ProfileAside() {
   return (
-    <aside>
+    <aside className=" w-40 bg-white shadow rounded-lg bg-opacity-75  min-h-screen p-0">
       <h1>Emergico</h1>
 
       <h4>Navigation:</h4>

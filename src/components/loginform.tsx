@@ -18,9 +18,9 @@ function LoginForm() {
     setInputValue(event.target.value);
   };
 
-  const user = api.signIn(usernameinputValue, passwordInputValue);
   const navigate = useNavigate();
   const signInVerification = () => {
+    const user = api.signIn(usernameinputValue, passwordInputValue);
     if (user) {
       navigate("/account");
     } else {

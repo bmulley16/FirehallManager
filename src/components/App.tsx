@@ -12,7 +12,7 @@ function App() {
     <>
       <div className="flex justify-center items-center h-screen ">
         <div
-          className={`bg-cover bg-center bg-[url("C:\\Projects\\FirehallManager\\src\\assets\\firefightingBackgrounMain.jpg")] h-full w-full bg-no-repeat bg-blend-overlay from-black-500 to-transparent`}
+          className={`bg-cover bg-center bg-[url('src\\assets\\fire-trucks-down-center-of-road.jpg')] h-full w-full bg-no-repeat bg-blend-overlay from-black-500 to-transparent`}
         >
           <HomepageBanner></HomepageBanner>
         </div>
