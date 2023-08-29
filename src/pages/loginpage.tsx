@@ -1,5 +1,5 @@
-import LoginForm from "../loginform";
-import Signup from "../banners/signupform";
+import LoginForm from "../components/loginform";
+import Signup from "../components/banners/signupform";
 
 function LoginPage() {
   return (

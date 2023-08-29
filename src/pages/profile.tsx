@@ -1,5 +1,5 @@
-import { ProfileAside } from "../accountPageAside";
-import { MainDashboard } from "../profileMainDashboard";
+import { ProfileAside } from "../components/accountPageAside";
+import { MainDashboard } from "../components/profileMainDashboard";
 export function Profile() {
   return (
     <div className=" flex w-screen h-screen ">
