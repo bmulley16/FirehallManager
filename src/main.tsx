@@ -5,7 +5,6 @@ import "./index.css";
 import { Profile } from "./pages/profile.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/loginpage.tsx";
-import AccountLandingPage from "./pages/accountLandingPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,11 +18,6 @@ const router = createBrowserRouter([
 
   {
     path: `/account`,
-    element: <AccountLandingPage />,
-  },
-
-  {
-    path: "/profile",
     element: <Profile />,
   },
 ]);
