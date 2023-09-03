@@ -11,13 +11,7 @@ export function MainDashboard() {
             quia id nobis maiores doloremque vero deserunt dolorum, placeat quas
             sunt maxime tempora magnam consequuntur. Temporibus alias distinctio
             facilis nobis quis? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Molestias, eos! Repellendus nemo necessitatibus,
-            labore commodi in asperiores reprehenderit magni quod nulla totam
-            debitis voluptatem non quos porro? Ad, molestiae omnis! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Ex saepe accusamus
-            porro necessitatibus omnis voluptatum tempore sit nisi, laudantium
-            harum. Voluptate perferendis ipsum voluptatibus porro dolores sit
-            voluptates ratione excepturi!
+            adipisicing elit. Molestias, eos!
           </div>
         </div>
         <div className=" bg-white shadow bg-opacity-75 row-span-2 w-2/3 mx-auto rounded-2xl ">
@@ -28,14 +22,6 @@ export function MainDashboard() {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
             quia id nobis maiores doloremque vero deserunt dolorum, placeat quas
             sunt maxime tempora magnam consequuntur. Temporibus alias distinctio
-            facilis nobis quis? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Molestias, eos! Repellendus nemo necessitatibus,
-            labore commodi in asperiores reprehenderit magni quod nulla totam
-            debitis voluptatem non quos porro? Ad, molestiae omnis! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Ex saepe accusamus
-            porro necessitatibus omnis voluptatum tempore sit nisi, laudantium
-            harum. Voluptate perferendis ipsum voluptatibus porro dolores sit
-            voluptates ratione excepturi!
           </div>
         </div>
         <div className="  bg-white shadow bg-opacity-75 rounded-2xl">
@@ -45,15 +31,6 @@ export function MainDashboard() {
           <div className="text-gray-600 mb-6">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
             quia id nobis maiores doloremque vero deserunt dolorum, placeat quas
-            sunt maxime tempora magnam consequuntur. Temporibus alias distinctio
-            facilis nobis quis? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Molestias, eos! Repellendus nemo necessitatibus,
-            labore commodi in asperiores reprehenderit magni quod nulla totam
-            debitis voluptatem non quos porro? Ad, molestiae omnis! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Ex saepe accusamus
-            porro necessitatibus omnis voluptatum tempore sit nisi, laudantium
-            harum. Voluptate perferendis ipsum voluptatibus porro dolores sit
-            voluptates ratione excepturi!
           </div>
         </div>
         <div className="  bg-white shadow bg-opacity-75 rounded-2xl">
@@ -62,16 +39,7 @@ export function MainDashboard() {
           </h1>
           <div className="text-gray-600 mb-6">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
-            quia id nobis maiores doloremque vero deserunt dolorum, placeat quas
-            sunt maxime tempora magnam consequuntur. Temporibus alias distinctio
-            facilis nobis quis? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Molestias, eos! Repellendus nemo necessitatibus,
-            labore commodi in asperiores reprehenderit magni quod nulla totam
-            debitis voluptatem non quos porro? Ad, molestiae omnis! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Ex saepe accusamus
-            porro necessitatibus omnis voluptatum tempore sit nisi, laudantium
-            harum. Voluptate perferendis ipsum voluptatibus porro dolores sit
-            voluptates ratione excepturi!
+            quia id nobis maiores doloremque vero deserunt dolorum,
           </div>
         </div>
         <div className="  bg-white shadow bg-opacity-75 col-span-2 rounded-2xl">
@@ -84,12 +52,7 @@ export function MainDashboard() {
             sunt maxime tempora magnam consequuntur. Temporibus alias distinctio
             facilis nobis quis? Lorem ipsum dolor sit amet consectetur
             adipisicing elit. Molestias, eos! Repellendus nemo necessitatibus,
-            labore commodi in asperiores reprehenderit magni quod nulla totam
-            debitis voluptatem non quos porro? Ad, molestiae omnis! Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Ex saepe accusamus
-            porro necessitatibus omnis voluptatum tempore sit nisi, laudantium
-            harum. Voluptate perferendis ipsum voluptatibus porro dolores sit
-            voluptates ratione excepturi!
+            um voluptatibus porro dolores sit voluptates ratione excepturi!
           </div>
         </div>
         <div className="  bg-white shadow bg-opacity-75 w-2/3 mx-auto rounded-2xl">
@@ -97,10 +60,7 @@ export function MainDashboard() {
             Shift Trade Requests:
           </h1>
           <div className="text-gray-600 mb-6">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus
-            quia id nobis maiores doloremque vero deserunt dolorum, placeat quas
-            sunt maxime tempora magnam consequuntur. Temporibus alias distinctio
-            facilis nobis quis? Lorem ipsum dolor sit amet consectetur
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </div>
         </div>
       </div>

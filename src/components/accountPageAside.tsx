@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function ProfileAside() {
   return (
     <aside className=" w-60 shadow   min-h-screen p-0 text-center flex flex-col  content-center bg-gray-900 space-x-4 text-white ">
@@ -23,7 +25,11 @@ export function ProfileAside() {
           <li>Administration</li>
           <li>Equipment</li>
           <li>Inventories</li>
-          <li>Overtime</li>
+
+          <Link to="/overtime">
+            <li className="">Overtime</li>
+          </Link>
+
           <li>Training</li>
           <li>Mess Managment</li>
           <li>Contacts</li>

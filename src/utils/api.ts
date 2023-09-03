@@ -58,3 +58,38 @@ export function signIn(username: string, password: string): User | null {
 
   // return user ? user : null
 }
+
+// SERVER
+// function onRequest(request) {
+//   const method = request.httpMethod;
+//   const path = request.path;
+//   const params = request.params;
+
+//   if (path === "/announcements") {
+//     if (method === "GET") {
+//       return getAllAnnouncements(params);
+//     }
+//   }
+// }
+
+// function getAllAnnouncements() {
+//   const results = db.get("people");
+
+//   return results;
+// }
+
+// /*
+// ANNOUNCEMENTS
+// - id: 1, date: today, text: hello
+// - id: 2, date: yesterday, text: world
+
+// USERS
+//  - blah
+
+// */
+
+// // locally, results.filter()
+// // backend, dbResults.filter(), GET /announcements?startDate=today&endDate=yesterday
+// // database, SELECT * FROM ANNOUNCEMENTS WHERE DATE <= yesterday
+
+// // add announcement "today was a good day"
