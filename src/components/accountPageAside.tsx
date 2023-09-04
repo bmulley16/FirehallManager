@@ -22,17 +22,35 @@ export function ProfileAside() {
 
       <div className="my-auto mx-auto">
         <ul className=" h-full w-full flex flex-col text-left justify-evenly">
-          <li>Administration</li>
-          <li>Equipment</li>
-          <li>Inventories</li>
-
-          <Link to="/overtime">
-            <li className="">Overtime</li>
+          <Link to="/administration">
+            <li className=" hover:font-bold hover:bg-slate-600">
+              Administration
+            </li>
           </Link>
 
-          <li>Training</li>
-          <li>Mess Managment</li>
-          <li>Contacts</li>
+          <Link to="/equipment">
+            <li className=" hover:font-bold hover:bg-slate-600">Equipment</li>
+          </Link>
+
+          <Link to="/inventories">
+            <li className=" hover:font-bold hover:bg-slate-600">Inventories</li>
+          </Link>
+
+          <Link to="/overtime">
+            <li className=" hover:font-bold hover:bg-slate-600">Overtime</li>
+          </Link>
+          <Link to="/training">
+            <li className=" hover:font-bold hover:bg-slate-600">Training</li>
+          </Link>
+          <Link to="/mess-managment">
+            <li className=" hover:font-bold hover:bg-slate-600">
+              Mess Managment
+            </li>
+          </Link>
+
+          <Link to="/contacts">
+            <li className=" hover:font-bold hover:bg-slate-600">Contacts</li>
+          </Link>
         </ul>
       </div>
     </aside>
