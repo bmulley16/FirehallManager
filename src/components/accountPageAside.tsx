@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { signIn } from "../utils/api";
 
 export function ProfileAside() {
   return (
