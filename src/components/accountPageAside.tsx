@@ -6,7 +6,7 @@ export function ProfileAside() {
     <aside className=" w-60 shadow   min-h-screen p-0 text-center flex flex-col  content-center bg-gray-900 space-x-4 text-white ">
       <div>
         <img
-          className="h-32 w-32 rounded-full mx-auto mt-5 "
+          className="h-32 wn-32 rounded-full mx-auto mt-5 "
           src="src\assets\Emergico-Logo.jpg"
           alt="Comany Logo"
         />
