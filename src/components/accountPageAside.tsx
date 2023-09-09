@@ -28,6 +28,8 @@ export function ProfileAside() {
               Administration
             </li>
           </Link>
+          {/* 
+          <MenuItem name="equip" route="/equip" /> */}
 
           <Link to="/equipment">
             <li className=" hover:font-bold hover:bg-slate-600">Equipment</li>
@@ -57,3 +59,9 @@ export function ProfileAside() {
     </aside>
   );
 }
+
+// function menuItem() {
+//   <Link to="/equipment">
+//   <li className=" hover:font-bold hover:bg-slate-600">Equipment</li>
+// </Link>
+// }
