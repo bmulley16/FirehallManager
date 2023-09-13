@@ -43,7 +43,7 @@ export function OvertimePage() {
     },
   ];
 
-  // Come back to this code block
+  const currentDate = new Date();
   const nextDay = new Date(currentDate);
   nextDay.setDate(currentDate.getDate() + 1);
 
@@ -71,9 +71,27 @@ export function OvertimePage() {
     });
   }
 
+  const onAfterRenderEvent = (event) => {
+    console.log(event.title);
+  };
+
   return (
     <div>
-      <Calendar usageStatistics={false} view="month" />
+      <Calendar
+        usageStatistics={false}
+        view="month"
+        schedules={initialEvents}
+        onAfterRenderEvent={onAfterRenderEvent}
+        eventFilter={(event) => {
+          const startDate = new Date(event.start);
+
+          const daysDifference = Math.floor(
+            (startDate - currentDate) / (24 * 60 * 60 * 1000)
+          );
+
+          return daysDifference % 4 === 0;
+        }}
+      />
     </div>
   );
 }
