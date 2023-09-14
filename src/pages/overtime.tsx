@@ -1,5 +1,5 @@
 // @ts-ignore
-import Calendar from "@toast-ui/react-calendar";
+import {Calendar} from "@toast-ui/react-calendar";
 import "@toast-ui/calendar/dist/toastui-calendar.min.css";
 
 import "tui-date-picker/dist/tui-date-picker.css";
@@ -26,7 +26,7 @@ export function OvertimePage() {
       end: "2022-06-28T15:30:00",
     },
     {
-      id: "2",
+      id: "3",
       calendarId: "cal1",
       title: "C-Platoon",
       category: "scheduling",
@@ -34,7 +34,7 @@ export function OvertimePage() {
       end: "2022-06-28T15:30:00",
     },
     {
-      id: "2",
+      id: "4",
       calendarId: "cal1",
       title: "D-Platoon",
       category: "scheduling",
@@ -71,7 +71,9 @@ export function OvertimePage() {
     });
   }
 
-  const onAfterRenderEvent = (event) => {
+  const onAfterRenderEvent = (event:{
+    title: string;
+  }) => {
     console.log(event.title);
   };
 
@@ -82,11 +84,13 @@ export function OvertimePage() {
         view="month"
         schedules={initialEvents}
         onAfterRenderEvent={onAfterRenderEvent}
-        eventFilter={(event) => {
+        eventFilter={(event:{
+          start: string;
+        }) => {
           const startDate = new Date(event.start);
 
           const daysDifference = Math.floor(
-            (startDate - currentDate) / (24 * 60 * 60 * 1000)
+            (startDate:{} - currentDate:{}) / (24 * 60 * 60 * 1000)
           );
 
           return daysDifference % 4 === 0;
