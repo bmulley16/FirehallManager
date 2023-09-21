@@ -2,6 +2,7 @@ import clsx from "clsx";
 
 interface Props extends React.PropsWithChildren {
   className?: string;
+  onClick?: any;
 }
 
 const Cell: React.FC<Props> = ({ className, children }) => {
