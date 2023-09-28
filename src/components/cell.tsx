@@ -2,6 +2,7 @@ import clsx from "clsx";
 
 interface Props extends React.PropsWithChildren {
   onClick?: any;
+  key?: any;
 }
 
 const Cell: React.FC<Props> = ({ onClick, children }) => {
@@ -17,7 +18,7 @@ const Cell: React.FC<Props> = ({ onClick, children }) => {
           {children}
         </button>
       ) : (
-        { children }
+        <div>{children}</div>
       )}
     </div>
   );
