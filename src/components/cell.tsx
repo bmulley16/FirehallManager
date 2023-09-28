@@ -3,22 +3,23 @@ import clsx from "clsx";
 interface Props extends React.PropsWithChildren {
   onClick?: any;
   key?: any;
+  className?: string;
 }
 
-const Cell: React.FC<Props> = ({ onClick, children }) => {
+const Cell: React.FC<Props> = ({ onClick, children, className }) => {
   return (
-    <div
-      className={clsx(
-        "h-12 flex items-center justify-center border-b border-r hover:font-bold"
-      )}
-    >
+    <div className={className}>
       {/* @ts-ignore */}
       {onClick ? (
-        <button className="h-full w-full" onClick={onClick}>
-          {children}
-        </button>
+        <button onClick={onClick}>{children}</button>
       ) : (
-        <div>{children}</div>
+        <div
+          className={clsx(
+            "h-12 flex items-center justify-center border-b border-r hover:font-bold"
+          )}
+        >
+          {children}
+        </div>
       )}
     </div>
   );

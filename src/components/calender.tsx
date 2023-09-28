@@ -14,6 +14,13 @@ export function Calender() {
     setCurrentDatetime(currentDatetime.minus({ months: 1 }));
   };
 
+  const advanceTwoMonths = () => {
+    setCurrentDatetime(currentDatetime.plus({ months: 2 }));
+  };
+  const goBackTwoMonths = () => {
+    setCurrentDatetime(currentDatetime.minus({ months: 2 }));
+  };
+
   const daysofWeekCells = daysofWeek.map((day) => <Cell key={day}>{day}</Cell>);
 
   const daysInMonth = currentDatetime.daysInMonth;
@@ -31,7 +38,7 @@ export function Calender() {
   return (
     <div className=" w-[400] border border-t border-l">
       <div className="grid grid-cols-7 items-center justify-center text-center">
-        <Cell>{"<<"}</Cell>
+        <Cell onClick={goBackTwoMonths}>{"<<"}</Cell>
         <Cell onClick={goToPrevMonth}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -48,9 +55,11 @@ export function Calender() {
             />
           </svg>
         </Cell>
-        <Cell>{currentDatetime.toLocaleString({ month: "long" })}</Cell>
+        <Cell className={"col-span-3"}>
+          {currentDatetime.toLocaleString({ month: "long" })}
+        </Cell>
         <Cell onClick={goToNextMonth}>{">"}</Cell>
-        <Cell>{">>"}</Cell>
+        <Cell onClick={advanceTwoMonths}>{">>"}</Cell>
 
         {daysofWeekCells}
         {renderDaysInMonth()}
@@ -58,10 +67,3 @@ export function Calender() {
     </div>
   );
 }
-
-/*
-
-- Use a Luxon DateTime object as the main piece of state. You can update just this to move forward/backwards the months. Everything that needs to display datetime info can just use this one piece of state. This is how you make things reactive
-- You wanna make your cells fill up the parent and be clickable
-
-*/
