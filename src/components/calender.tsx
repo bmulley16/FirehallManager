@@ -1,10 +1,16 @@
 import { DateTime } from "luxon";
 import Cell from "./cell";
 import { useState } from "react";
+import DailyOnClickComponent from "./dailyRenderedCalenderInterface";
 const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", " Fri", "Sat"];
 
 export function Calender() {
   const [currentDatetime, setCurrentDatetime] = useState(DateTime.local());
+  const [selectedDay, setSelectedDay] = useState<number | null>(null);
+
+  const theDailyOnClickInterfaceRender = () => {
+    return <DailyOnClickComponent></DailyOnClickComponent>;
+  };
 
   const goToNextMonth = () => {
     setCurrentDatetime(currentDatetime.plus({ months: 1 }));
@@ -28,12 +34,20 @@ export function Calender() {
     if (daysInMonth !== undefined) {
       const cells = [];
       for (let i = 1; i <= daysInMonth; i++) {
-        cells.push(<Cell key={i}>{i}</Cell>);
+        cells.push(
+          <Cell onClick={() => setSelectedDay(i)} key={i}>
+            {i}
+          </Cell>
+        );
       }
 
       return cells;
     }
   };
+  let dailyOnClickInterface = null;
+  if (selectedDay !== null) {
+    dailyOnClickInterface = <DailyOnClickComponent selectedDay={selectedDay} />;
+  }
 
   return (
     <div className=" w-[400] border border-t border-l">
@@ -64,6 +78,7 @@ export function Calender() {
         {daysofWeekCells}
         {renderDaysInMonth()}
       </div>
+      {dailyOnClickInterface()}
     </div>
   );
 }
