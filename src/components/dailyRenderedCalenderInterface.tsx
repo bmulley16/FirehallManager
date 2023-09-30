@@ -4,10 +4,8 @@ interface DailyOnClickInterfaceProps {
   selectedDay?: number;
 }
 
-const DailyOnClickComponent: React.FC<DailyOnClickInterfaceProps> = ({
-  selectedDay,
-}) => {
+function DailyOnClickComponent(selectedDay: DailyOnClickInterfaceProps) {
   return <div className=" h-16">Hello World</div>;
-};
+}
 
 export default DailyOnClickComponent;

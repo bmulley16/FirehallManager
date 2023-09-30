@@ -44,41 +44,47 @@ export function Calender() {
       return cells;
     }
   };
-  let dailyOnClickInterface = null;
-  if (selectedDay !== null) {
-    dailyOnClickInterface = <DailyOnClickComponent selectedDay={selectedDay} />;
-  }
 
-  return (
-    <div className=" w-[400] border border-t border-l">
-      <div className="grid grid-cols-7 items-center justify-center text-center">
-        <Cell onClick={goBackTwoMonths}>{"<<"}</Cell>
-        <Cell onClick={goToPrevMonth}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-            />
-          </svg>
-        </Cell>
-        <Cell className={"col-span-3"}>
-          {currentDatetime.toLocaleString({ month: "long" })}
-        </Cell>
-        <Cell onClick={goToNextMonth}>{">"}</Cell>
-        <Cell onClick={advanceTwoMonths}>{">>"}</Cell>
+  function dailyOnClickInterface() {
+    if (selectedDay !== null) {
+      let DailyConentRender = (
+        <DailyOnClickComponent selectedDay={selectedDay} />
+      );
 
-        {daysofWeekCells}
-        {renderDaysInMonth()}
+      return DailyConentRender;
+    }
+
+    return (
+      <div className=" w-[400] border border-t border-l">
+        <div className="grid grid-cols-7 items-center justify-center text-center">
+          <Cell onClick={goBackTwoMonths}>{"<<"}</Cell>
+          <Cell onClick={goToPrevMonth}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+              />
+            </svg>
+          </Cell>
+          <Cell className={"col-span-3"}>
+            {currentDatetime.toLocaleString({ month: "long" })}
+          </Cell>
+          <Cell onClick={goToNextMonth}>{">"}</Cell>
+          <Cell onClick={advanceTwoMonths}>{">>"}</Cell>
+
+          {daysofWeekCells}
+          {renderDaysInMonth()}
+        </div>
+        {dailyOnClickInterface()}
       </div>
-      {dailyOnClickInterface()}
-    </div>
-  );
+    );
+  }
 }
