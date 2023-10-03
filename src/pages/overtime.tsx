@@ -1,4 +1,4 @@
-import { Calender } from "../components/calender";
+import Calender from "../components/calender";
 
 export function OvertimePage() {
   return (

@@ -4,7 +4,9 @@ import { useState } from "react";
 import DailyOnClickComponent from "./dailyRenderedCalenderInterface";
 const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", " Fri", "Sat"];
 
-export function Calender() {
+// luxon days of week and month stuff
+
+export default function Calender() {
   const [currentDatetime, setCurrentDatetime] = useState(DateTime.local());
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
@@ -12,25 +14,19 @@ export function Calender() {
     return <DailyOnClickComponent></DailyOnClickComponent>;
   };
 
-  const goToNextMonth = () => {
-    setCurrentDatetime(currentDatetime.plus({ months: 1 }));
+  const goForwardMonths = (num: number) => {
+    setCurrentDatetime(currentDatetime.plus({ months: num }));
   };
 
-  const goToPrevMonth = () => {
-    setCurrentDatetime(currentDatetime.minus({ months: 1 }));
-  };
-
-  const advanceTwoMonths = () => {
-    setCurrentDatetime(currentDatetime.plus({ months: 2 }));
-  };
-  const goBackTwoMonths = () => {
-    setCurrentDatetime(currentDatetime.minus({ months: 2 }));
+  const goBackMonths = (num: number) => {
+    setCurrentDatetime(currentDatetime.minus({ months: num }));
   };
 
   const daysofWeekCells = daysofWeek.map((day) => <Cell key={day}>{day}</Cell>);
 
   const daysInMonth = currentDatetime.daysInMonth;
   const renderDaysInMonth = () => {
+    // if (!daysInMonth) - alternative
     if (daysInMonth !== undefined) {
       const cells = [];
       for (let i = 1; i <= daysInMonth; i++) {
@@ -46,6 +42,7 @@ export function Calender() {
   };
 
   function dailyOnClickInterface() {
+    // if (!selected) - alternative
     if (selectedDay !== null) {
       let DailyConentRender = (
         <DailyOnClickComponent selectedDay={selectedDay} />
@@ -53,38 +50,37 @@ export function Calender() {
 
       return DailyConentRender;
     }
-
-    return (
-      <div className=" w-[400] border border-t border-l">
-        <div className="grid grid-cols-7 items-center justify-center text-center">
-          <Cell onClick={goBackTwoMonths}>{"<<"}</Cell>
-          <Cell onClick={goToPrevMonth}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
-              />
-            </svg>
-          </Cell>
-          <Cell className={"col-span-3"}>
-            {currentDatetime.toLocaleString({ month: "long" })}
-          </Cell>
-          <Cell onClick={goToNextMonth}>{">"}</Cell>
-          <Cell onClick={advanceTwoMonths}>{">>"}</Cell>
-
-          {daysofWeekCells}
-          {renderDaysInMonth()}
-        </div>
-        {dailyOnClickInterface()}
-      </div>
-    );
   }
+  return (
+    <div className=" w-[400] border border-t border-l">
+      <div className="grid grid-cols-7 items-center justify-center text-center">
+        <Cell onClick={() => goBackMonths(1)}>{"<<"}</Cell>
+        <Cell onClick={goBackMonths}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+            />
+          </svg>
+        </Cell>
+        <Cell className={"col-span-3"}>
+          {currentDatetime.toLocaleString({ month: "long" })}
+        </Cell>
+        <Cell onClick={goForwardMonths(1)}>{">"}</Cell>
+        <Cell onClick={goForwardMonths(2)}>{">>"}</Cell>
+
+        {daysofWeekCells}
+        {renderDaysInMonth()}
+      </div>
+      {dailyOnClickInterface()}
+    </div>
+  );
 }
