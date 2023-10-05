@@ -1,7 +1,9 @@
 import { DateTime } from "luxon";
+import { Link } from "react-router-dom";
 import Cell from "./cell";
 import { useState } from "react";
 import DailyOnClickComponent from "./dailyRenderedCalenderInterface";
+import { link } from "fs";
 const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", " Fri", "Sat"];
 
 // luxon days of week and month stuff
@@ -30,10 +32,15 @@ export default function Calender() {
     if (daysInMonth !== undefined) {
       const cells = [];
       for (let i = 1; i <= daysInMonth; i++) {
+        const dailyNavigation = () => {
+          setSelectedDay(i);
+        };
         cells.push(
-          <Cell onClick={() => setSelectedDay(i)} key={i}>
-            {i}
-          </Cell>
+          <Link to={`/overtime/daily-overview`}>
+            <Cell onClick={() => setSelectedDay(i)} key={i}>
+              {i}
+            </Cell>
+          </Link>
         );
       }
 
@@ -41,21 +48,11 @@ export default function Calender() {
     }
   };
 
-  function dailyOnClickInterface() {
-    // if (!selected) - alternative
-    if (selectedDay !== null) {
-      let DailyConentRender = (
-        <DailyOnClickComponent selectedDay={selectedDay} />
-      );
-
-      return DailyConentRender;
-    }
-  }
   return (
     <div className=" w-[400] border border-t border-l">
       <div className="grid grid-cols-7 items-center justify-center text-center">
-        <Cell onClick={() => goBackMonths(1)}>{"<<"}</Cell>
-        <Cell onClick={goBackMonths}>
+        <Cell onClick={() => goBackMonths(2)}>{"<<"}</Cell>
+        <Cell onClick={() => goBackMonths(1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -74,13 +71,12 @@ export default function Calender() {
         <Cell className={"col-span-3"}>
           {currentDatetime.toLocaleString({ month: "long" })}
         </Cell>
-        <Cell onClick={goForwardMonths(1)}>{">"}</Cell>
-        <Cell onClick={goForwardMonths(2)}>{">>"}</Cell>
+        <Cell onClick={() => goForwardMonths(1)}>{">"}</Cell>
+        <Cell onClick={() => goForwardMonths(2)}>{">>"}</Cell>
 
         {daysofWeekCells}
         {renderDaysInMonth()}
       </div>
-      {dailyOnClickInterface()}
     </div>
   );
 }

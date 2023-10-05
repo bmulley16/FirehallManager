@@ -10,8 +10,9 @@ import { ContactsPage } from "./pages/contacts.tsx";
 import { AdministrationPage } from "./pages/administrationpage.tsx";
 import { EquipmentPage } from "./pages/equipmentPage.tsx";
 import { InventoriesPage } from "./pages/Inventories.tsx";
-import { TrainingPage } from "./pages/TrainingPage.tsx";
+import { TrainingPage } from "./pages/trainingPage.tsx";
 import { MessManagment } from "./pages/messmanagmentPage.tsx";
+import DailyOnClickComponent from "./components/dailyRenderedCalenderInterface.tsx";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
   {
     path: `/mess-managment`,
     element: <MessManagment />,
+  },
+
+  {
+    path: `/overtime/daily-overview`,
+    element: <DailyOnClickComponent />,
   },
 ]);
 
