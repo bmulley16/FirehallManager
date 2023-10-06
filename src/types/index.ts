@@ -8,3 +8,23 @@ export interface PlatoonSchedule {
   start: ISODate;
   end: ISODate;
 }
+
+//type alias
+export type UserId = string;
+
+export interface ExampleUser {
+  id: UserId;
+  email: string;
+  password: string;
+  phone: string;
+  firstName: string;
+  lastName: string;
+  employeeNumber: number;
+}
+
+export interface UserQualifications {
+  id: UserId;
+  qualifications: {
+    [qual: string]: boolean;
+  };
+}

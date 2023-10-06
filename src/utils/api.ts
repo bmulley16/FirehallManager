@@ -1,3 +1,5 @@
+import { ExampleUser } from "../types";
+
 interface User {
   username: string;
   password: string;
@@ -57,6 +59,17 @@ export function signIn(username: string, password: string): User | null {
   // );
 
   // return user ? user : null
+}
+
+// dwf891-bjdsuw-128dka-Pdui19
+// uuid
+
+export function getEmployees(): ExampleUser[] {
+  const storedEmployeeNames = JSON.parse(
+    localStorage.getItem("employeeNames") ?? "[]"
+  );
+
+  return storedEmployeeNames;
 }
 
 // SERVER

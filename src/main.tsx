@@ -12,7 +12,7 @@ import { EquipmentPage } from "./pages/equipmentPage.tsx";
 import { InventoriesPage } from "./pages/Inventories.tsx";
 import { TrainingPage } from "./pages/trainingPage.tsx";
 import { MessManagment } from "./pages/messmanagmentPage.tsx";
-import DailyOnClickComponent from "./components/dailyRenderedCalenderInterface.tsx";
+import DailyOnClickComponent from "./pages/dailyRenderedCalenderInterface.tsx";
 
 const router = createBrowserRouter([
   {

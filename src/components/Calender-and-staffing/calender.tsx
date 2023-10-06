@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import { Link } from "react-router-dom";
 import Cell from "./cell";
 import { useState } from "react";
-import DailyOnClickComponent from "./dailyRenderedCalenderInterface";
+import DailyOnClickComponent from "../../pages/dailyRenderedCalenderInterface";
 import { link } from "fs";
 const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", " Fri", "Sat"];
 
@@ -37,7 +37,11 @@ export default function Calender() {
         };
         cells.push(
           <Link to={`/overtime/daily-overview`}>
-            <Cell onClick={() => setSelectedDay(i)} key={i}>
+            <Cell
+              className="hover:font-bold"
+              onClick={() => setSelectedDay(i)}
+              key={i}
+            >
               {i}
             </Cell>
           </Link>
