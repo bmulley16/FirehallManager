@@ -3,18 +3,26 @@ import { ExampleUser } from "../types";
 interface User {
   username: string;
   password: string;
-
+  firstName: string;
+  lastName: string;
   // the questionmark makes it optional and the interface applies the subject to the function and is specifies the data type there
   birthday?: string;
 }
 
-export function signUp(username: string, password: string): User {
+export function signUp(
+  username: string,
+  password: string,
+  firstName: string,
+  lastName: string
+): User {
   const users = localStorage.getItem("users");
   const parsedUsers: User[] = users ? JSON.parse(users) : [];
 
   const user: User = {
     username: username,
     password: password,
+    firstName: firstName,
+    lastName: lastName,
   };
 
   const newUsers = [...parsedUsers, user];

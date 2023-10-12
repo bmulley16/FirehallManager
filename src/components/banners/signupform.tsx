@@ -1,67 +1,94 @@
 import { useState } from "react";
 import * as api from "../../utils/api";
-
+import { Link } from "react-router-dom";
 function Signup() {
   const [usernameinputValue, setInputValue] = useState("");
   const [passwordInputValue, setPasswordInputValue] = useState("");
-
+  const [FirstNameInputValue, setFirstNameInputValue] = useState("");
+  const [LastNameInputValue, setLastNameInputValue] = useState("");
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInputValue(event.target.value);
-    console.log(passwordInputValue);
   };
 
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
-    console.log(usernameinputValue);
+  };
+  const handleChangeFirstName = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFirstNameInputValue(event.target.value);
+  };
+  const handleChangeLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLastNameInputValue(event.target.value);
   };
 
   const createdAccounts = function storingCreatedAccounts() {
     localStorage.setItem(
       "users",
       JSON.stringify({
-        username: { usernameinputValue },
-        password: { passwordInputValue },
+        username: usernameinputValue,
+        password: passwordInputValue,
+        id: " ",
       })
     );
   };
 
   const handleButtonClick = () => {
-    api.signUp(usernameinputValue, passwordInputValue);
+    api.signUp(
+      usernameinputValue,
+      passwordInputValue,
+      FirstNameInputValue,
+      LastNameInputValue
+    );
   };
 
   return (
-    <div className="bg-[url('src\\assets\\loginScreenBackground.jpg')] bg-center bg-no-repeat bg-cover max-w-full pt-[50vh] ">
-      <div className=" flex-column    ">
-        <h1>New Here?</h1>
-
-        <p>
-          Sign up and discover how Emergico's framework can benefit your agency!{" "}
-        </p>
-        <form className="flex-column" onSubmit={createdAccounts}>
+    <div className="bg-[url('src\\assets\\loginScreenBackground.jpg')] bg-center bg-no-repeat bg-cover min-h-screen flex justify-center items-center">
+      <div className="bg-white p-8 rounded shadow-lg w-full sm:w-96">
+        <h1 className="text-3xl text-center text-blue-500 font-semibold mb-4 py-2 px-4 rounded-lg">
+          Sign Up
+        </h1>
+        <form className="flex flex-col" onSubmit={createdAccounts}>
           <input
             type="email"
             id="email-input"
             placeholder="Email"
             onChange={handleChangeEmail}
             value={usernameinputValue}
-          ></input>
-
+            className="input"
+          />
+          <input
+            type="text"
+            id="first-name"
+            onChange={handleChangeFirstName}
+            placeholder="First Name"
+            className="input"
+          />
+          <input
+            type="text"
+            id="last-name"
+            onChange={handleChangeLastName}
+            placeholder="Last Name"
+            className="input"
+          />
           <input
             type="password"
             id="password"
             placeholder="Password"
             onChange={handleChangePassword}
             value={passwordInputValue}
-          ></input>
+            className="input"
+          />
+          <Link to={"/login"}>
+            <button
+              type="submit"
+              className="hover:bg-blue-500  hover:shadow-lg"
+              onClick={handleButtonClick}
+            >
+              Sign Up
+            </button>
+          </Link>
         </form>
-
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
-          onClick={handleButtonClick}
-        >
-          Sign Up
-        </button>
       </div>
     </div>
   );

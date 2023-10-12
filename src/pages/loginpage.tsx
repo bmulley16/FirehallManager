@@ -1,11 +1,24 @@
 import LoginForm from "../components/loginform";
 import Signup from "../components/banners/signupform";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   return (
-    <div className=" flex min-h-screen min-w-screen text-center ">
-      <LoginForm></LoginForm>
-      <Signup></Signup>
+    <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 min-h-screen flex items-center justify-center">
+      <div className="bg-white p-8 rounded shadow-lg w-full max-w-md text-center">
+        <LoginForm />
+
+        <div className="mt-6">
+          <h1 className="text-2xl text-blue-600 font-semibold mb-4">
+            New Here? Sign up!
+          </h1>
+          <Link to="/signup">
+            <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-200">
+              Sign Up
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

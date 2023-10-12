@@ -13,7 +13,7 @@ import { InventoriesPage } from "./pages/Inventories.tsx";
 import { TrainingPage } from "./pages/trainingPage.tsx";
 import { MessManagment } from "./pages/messmanagmentPage.tsx";
 import DailyOnClickComponent from "./pages/dailyRenderedCalenderInterface.tsx";
-
+import { SignUpPage } from "./pages/signUpPage.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,6 +67,11 @@ const router = createBrowserRouter([
   {
     path: `/overtime/daily-overview`,
     element: <DailyOnClickComponent />,
+  },
+
+  {
+    path: `/signup`,
+    element: <SignUpPage />,
   },
 ]);
 
