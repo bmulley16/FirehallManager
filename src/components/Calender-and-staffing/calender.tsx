@@ -53,8 +53,8 @@ export default function Calender() {
   };
 
   return (
-    <div className=" w-[400] border border-t border-l">
-      <div className="grid grid-cols-7 items-center justify-center text-center">
+    <div className=" w-full h-full border border-t border-l">
+      <div className=" h-full grid grid-cols-7 items-center justify-center text-center">
         <Cell onClick={() => goBackMonths(2)}>
           {
             <svg
