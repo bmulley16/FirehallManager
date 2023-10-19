@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function LoginPage() {
   return (
-    <div className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 min-h-screen flex items-center justify-center">
+    <div className="bg-gradient-to-r from-black to-blue-900 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded shadow-lg w-full max-w-md text-center">
         <LoginForm />
 

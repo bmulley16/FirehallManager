@@ -6,7 +6,7 @@ export function OvertimePage() {
     <div className="flex h-screen bg-gray-800">
       <ProfileAside />
       <div className="flex-1">
-        <div className="h-full grid grid-cols-3 gap-4 p-4">
+        <div className="h-screen grid grid-cols-3 gap-4 p-4">
           <OvertimeGridBlocks heading="Overtime"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Projection"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Leave Balances"></OvertimeGridBlocks>

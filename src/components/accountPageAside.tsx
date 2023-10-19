@@ -3,7 +3,7 @@ import { signIn } from "../utils/api";
 
 export function ProfileAside() {
   return (
-    <aside className=" w-60 shadow   min-h-screen p-0 text-center flex flex-col  content-center bg-gray-900 space-x-4 text-white ">
+    <aside className=" my-4 ml-2 rounded-md w-60 shadow   min-h-screen p-0 text-center flex flex-col  content-center bg-gray-900 space-x-4 text-white ">
       <div>
         <img
           className="h-32 wn-32 rounded-full mx-auto mt-5 "
