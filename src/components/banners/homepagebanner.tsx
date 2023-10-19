@@ -1,16 +1,15 @@
-// @ts-ignore
-
-import Button from "../banners/buttons";
+import React from "react";
+import Button from "../Button";
 
 function HomepageBanner() {
   return (
-    <div className=" flex-col min-h- min-w-full justify-center items- ">
-      <h1 className="text-8xl  text-white font-bold  ">Emergico</h1>
-      <div className="text-center border-2 border-white-500 max-w-xl ">
-        <h2 className="text-2xl  text-white font-light ">
-          The Leader in Emergency Managment
+    <div className="flex flex-col h-screen justify-center items-center text-black">
+      <h1 className="text-6xl font-bold">Emergico</h1>
+      <div className="text-center max-w-lg mt-4">
+        <h2 className="text-2xl font-light">
+          The Leader in Emergency Management
         </h2>
-        <Button></Button>
+        <Button />
       </div>
     </div>
   );
