@@ -55,7 +55,24 @@ export default function Calender() {
   return (
     <div className=" w-[400] border border-t border-l">
       <div className="grid grid-cols-7 items-center justify-center text-center">
-        <Cell onClick={() => goBackMonths(2)}>{"<<"}</Cell>
+        <Cell onClick={() => goBackMonths(2)}>
+          {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5"
+              />
+            </svg>
+          }
+        </Cell>
         <Cell onClick={() => goBackMonths(1)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,15 +85,49 @@ export default function Calender() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
             />
           </svg>
         </Cell>
         <Cell className={"col-span-3"}>
           {currentDatetime.toLocaleString({ month: "long" })}
         </Cell>
-        <Cell onClick={() => goForwardMonths(1)}>{">"}</Cell>
-        <Cell onClick={() => goForwardMonths(2)}>{">>"}</Cell>
+        <Cell onClick={() => goForwardMonths(1)}>
+          {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          }
+        </Cell>
+        <Cell onClick={() => goForwardMonths(2)}>
+          {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          }
+        </Cell>
 
         {daysofWeekCells}
         {renderDaysInMonth()}

@@ -57,7 +57,7 @@ export function MainDashboard() {
         </div>
         <div className="  bg-white shadow bg-opacity-75 w-2/3 mx-auto rounded-2xl">
           <h1 className="text-3xl font-semibold mb-4 text-gray-800 text-center pt-2 w-full h-fit">
-            Shift Trade Requests:
+            Member Involvement:
           </h1>
           <div className="text-gray-600 mb-6">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.

@@ -40,7 +40,7 @@ export function ProfileAside() {
           </Link>
 
           <Link to="/overtime">
-            <li className=" hover:font-bold hover:bg-slate-600">Overtime</li>
+            <li className=" hover:font-bold hover:bg-slate-600">Staffing</li>
           </Link>
           <Link to="/training">
             <li className=" hover:font-bold hover:bg-slate-600">Training</li>
@@ -50,6 +50,10 @@ export function ProfileAside() {
               Mess Managment
             </li>
           </Link>
+
+          <li className=" hover:font-bold hover:bg-slate-600">
+            District Notifications
+          </li>
 
           <Link to="/contacts">
             <li className=" hover:font-bold hover:bg-slate-600">Contacts</li>
