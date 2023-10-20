@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import * as api from "../utils/api";
-import { signIn } from "../utils/api";
 
-import { Navigate, useNavigate } from "react-router-dom";
+import * as api from "../utils/api";
+// import { signIn } from "../utils/api";
+
+import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const [usernameinputValue, setInputValue] = useState("");
 
@@ -20,6 +21,7 @@ function LoginForm() {
   const navigate = useNavigate();
   const signInVerification = () => {
     const user = api.signIn(usernameinputValue, passwordInputValue);
+    console.log("USER", user);
     if (user) {
       navigate("/account");
     } else {
@@ -34,30 +36,28 @@ function LoginForm() {
           {" "}
           Login to Your Account{" "}
         </h1>
-        <form className="flex-column" onSubmit={signInVerification}>
-          <input
-            type="email"
-            id="email-input"
-            placeholder="Email"
-            onChange={handleChangeEmail}
-            value={usernameinputValue}
-          ></input>
+        <input
+          type="email"
+          id="email-input"
+          placeholder="Email"
+          onChange={handleChangeEmail}
+          value={usernameinputValue}
+        ></input>
 
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onChange={handleChangePassword}
-            value={passwordInputValue}
-          ></input>
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          onChange={handleChangePassword}
+          value={passwordInputValue}
+        ></input>
 
-          <button
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
-          >
-            Sign In
-          </button>
-        </form>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
+          onClick={signInVerification}
+        >
+          Sign In
+        </button>
       </div>
     </>
   );

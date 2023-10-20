@@ -1,13 +1,14 @@
 import Calender from "../components/Calender-and-staffing/calender";
 import { ProfileAside } from "../components/accountPageAside";
 import { OvertimeGridBlocks } from "../components/overtimePageGridBlocks";
+
 export function OvertimePage() {
   return (
     <div className="flex h-screen bg-gray-800">
       <ProfileAside />
       <div className="flex-1">
         <div className="h-screen grid grid-cols-3 gap-4 p-4">
-          <OvertimeGridBlocks heading="Overtime"></OvertimeGridBlocks>
+          <OvertimeBlock />
           <OvertimeGridBlocks heading="Projection"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Leave Balances"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Shift Trades"></OvertimeGridBlocks>
@@ -20,3 +21,14 @@ export function OvertimePage() {
     </div>
   );
 }
+
+function OvertimeBlock() {
+  return (
+    <OvertimeGridBlocks heading="Overtime">
+      <p>this is a test</p>
+      <p>foobar</p>
+    </OvertimeGridBlocks>
+  );
+}
+
+function ProjectionBlock() {}
