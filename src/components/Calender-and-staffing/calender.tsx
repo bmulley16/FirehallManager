@@ -10,6 +10,7 @@ const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", " Fri", "Sat"];
 
 export default function Calender() {
   const [currentDatetime, setCurrentDatetime] = useState(DateTime.local());
+
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
 
   const theDailyOnClickInterfaceRender = () => {
