@@ -5,10 +5,11 @@ import * as api from "../utils/api";
 // import { signIn } from "../utils/api";
 
 import { useNavigate } from "react-router-dom";
+import { useSetUser } from "../hooks";
 function LoginForm() {
   const [usernameinputValue, setInputValue] = useState("");
-
   const [passwordInputValue, setPasswordInputValue] = useState("");
+  const setUser = useSetUser();
 
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInputValue(event.target.value);
@@ -23,6 +24,7 @@ function LoginForm() {
     const user = api.signIn(usernameinputValue, passwordInputValue);
     console.log("USER", user);
     if (user) {
+      setUser(user);
       navigate("/account");
     } else {
       alert("User does not exist");

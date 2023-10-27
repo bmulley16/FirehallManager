@@ -14,6 +14,10 @@ import { TrainingPage } from "./pages/trainingPage.tsx";
 import { MessManagment } from "./pages/messmanagmentPage.tsx";
 import DailyOnClickComponent from "./pages/dailyRenderedCalenderInterface.tsx";
 import { SignUpPage } from "./pages/signUpPage.tsx";
+import { useState } from "react";
+import { SetUserContext, UserContext } from "./contexts";
+import { User } from "./types/index.ts";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -75,9 +79,19 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-    {/* <App /> */}
-  </React.StrictMode>
-);
+function Main() {
+  const [user, setUser] = useState<User | null>(null);
+
+  return (
+    <React.StrictMode>
+      <UserContext.Provider value={user}>
+        <SetUserContext.Provider value={setUser}>
+          <RouterProvider router={router} />
+          {/* <App /> */}
+        </SetUserContext.Provider>
+      </UserContext.Provider>
+    </React.StrictMode>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<Main />);

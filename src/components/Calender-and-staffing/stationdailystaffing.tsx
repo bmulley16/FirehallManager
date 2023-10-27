@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getEmployees } from "../../utils/api";
-import { ExampleUser } from "../../types";
+import { User } from "../../types";
 import Calender from "./calender";
 
 export function dailyStaffingComponent() {
-  const [employeeNames, setEmployeeNames] = useState<ExampleUser[]>([]);
+  const [employeeNames, setEmployeeNames] = useState<User[]>([]);
 
   useEffect(() => {
     const employees = getEmployees();

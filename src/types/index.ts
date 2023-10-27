@@ -12,7 +12,7 @@ export interface PlatoonSchedule {
 //type alias
 export type UserId = string;
 
-export interface ExampleUser {
+export interface User {
   id: UserId;
   email: string;
   password: string;

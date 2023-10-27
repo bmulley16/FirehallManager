@@ -1,14 +1,6 @@
-import { ExampleUser } from "../types";
+import { User } from "../types";
 
-interface User {
-  username: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-  // the questionmark makes it optional and the interface applies the subject to the function and is specifies the data type there
-  birthday?: string;
-}
-
+//TODO update parameter to take a User object
 export function signUp(
   username: string,
   password: string,
@@ -19,7 +11,7 @@ export function signUp(
   const parsedUsers: User[] = users ? JSON.parse(users) : [];
 
   const user: User = {
-    username: username,
+    email: username,
     password: password,
     firstName: firstName,
     lastName: lastName,
@@ -44,7 +36,7 @@ export function signIn(username: string, password: string): User | null {
     const users: User[] = JSON.parse(nullCheck);
 
     const user: User | undefined = users.find(
-      (user) => user.username === username && user.password === password
+      (user) => user.email === username && user.password === password
     );
 
     if (user) {
@@ -72,7 +64,7 @@ export function signIn(username: string, password: string): User | null {
 // dwf891-bjdsuw-128dka-Pdui19
 // uuid
 
-export function getEmployees(): ExampleUser[] {
+export function getEmployees(): User[] {
   const storedEmployeeNames = JSON.parse(
     localStorage.getItem("employeeNames") ?? "[]"
   );
