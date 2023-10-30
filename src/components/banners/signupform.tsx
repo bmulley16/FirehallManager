@@ -29,17 +29,19 @@ function Signup() {
         username: usernameinputValue,
         password: passwordInputValue,
         id: " ",
+        firstname: FirstNameInputValue,
+        lastname: LastNameInputValue,
       })
     );
   };
 
   const handleButtonClick = () => {
-    api.signUp(
+    api.signUp({
       usernameinputValue,
       passwordInputValue,
       FirstNameInputValue,
-      LastNameInputValue
-    );
+      LastNameInputValue,
+    });
   };
 
   return (

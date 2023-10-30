@@ -1,20 +1,27 @@
 import { User } from "../types";
+import { UserId } from "../types";
 
 //TODO update parameter to take a User object
-export function signUp(
-  username: string,
-  password: string,
-  firstName: string,
-  lastName: string
-): User {
+export function signUp({
+  email,
+  password,
+  firstName,
+  lastName,
+  phone,
+  id,
+  employeeNumber,
+}: User): User {
   const users = localStorage.getItem("users");
   const parsedUsers: User[] = users ? JSON.parse(users) : [];
 
   const user: User = {
-    email: username,
+    id: "",
+    email: email,
     password: password,
     firstName: firstName,
     lastName: lastName,
+    phone: "",
+    employeeNumber: 0,
   };
 
   const newUsers = [...parsedUsers, user];
