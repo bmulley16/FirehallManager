@@ -7,10 +7,10 @@ function Signup() {
   const [passwordInputValue, setPasswordInputValue] = useState("");
   const [FirstNameInputValue, setFirstNameInputValue] = useState("");
   const [LastNameInputValue, setLastNameInputValue] = useState("");
+  const [employeeNumberInputValue, setEmployeeNumberInputValue] = useState("");
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInputValue(event.target.value);
   };
-
   const handleChangeEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
@@ -21,6 +21,12 @@ function Signup() {
   };
   const handleChangeLastName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLastNameInputValue(event.target.value);
+  };
+
+  const handleChangeEmployeeNumber = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setEmployeeNumberInputValue(event.target.value);
   };
 
   const createdAccounts = function storingCreatedAccounts() {
@@ -79,6 +85,14 @@ function Signup() {
             placeholder="Last Name"
             className="input"
           />
+          <input
+            type="text"
+            id="employee-number"
+            onChange={handleChangeEmployeeNumber}
+            placeholder="Employee Nuber"
+            className="input"
+          />
+
           <input
             type="password"
             id="password"
