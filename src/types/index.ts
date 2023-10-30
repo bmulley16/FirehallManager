@@ -14,7 +14,7 @@ export type UserId = string;
 
 export interface User {
   id: UserId;
-  email: string;
+  username: string;
   password: string;
   phone: string;
   firstName: string;

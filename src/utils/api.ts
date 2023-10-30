@@ -3,7 +3,7 @@ import { UserId } from "../types";
 
 //TODO update parameter to take a User object
 export function signUp({
-  email,
+  username,
   password,
   firstName,
   lastName,
@@ -16,7 +16,7 @@ export function signUp({
 
   const user: User = {
     id: "",
-    email: email,
+    username: username,
     password: password,
     firstName: firstName,
     lastName: lastName,
@@ -43,7 +43,7 @@ export function signIn(username: string, password: string): User | null {
     const users: User[] = JSON.parse(nullCheck);
 
     const user: User | undefined = users.find(
-      (user) => user.email === username && user.password === password
+      (user) => user.username === username && user.password === password
     );
 
     if (user) {

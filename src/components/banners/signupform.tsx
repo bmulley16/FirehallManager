@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as api from "../../utils/api";
 import { Link } from "react-router-dom";
+import { User } from "../../types";
 function Signup() {
   const [usernameinputValue, setInputValue] = useState("");
   const [passwordInputValue, setPasswordInputValue] = useState("");
@@ -35,13 +36,18 @@ function Signup() {
     );
   };
 
+  const newUser: User = {
+    id: "",
+    username: usernameinputValue,
+    password: passwordInputValue,
+    firstName: FirstNameInputValue,
+    lastName: LastNameInputValue,
+    phone: "",
+    employeeNumber: 0,
+  };
+
   const handleButtonClick = () => {
-    api.signUp({
-      usernameinputValue,
-      passwordInputValue,
-      FirstNameInputValue,
-      LastNameInputValue,
-    });
+    api.signUp(newUser);
   };
 
   return (
