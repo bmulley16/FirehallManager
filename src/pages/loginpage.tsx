@@ -1,4 +1,4 @@
-import LoginForm from "../components/loginform";
+import LoginForm from "../components/forms/loginform";
 import Signup from "../components/forms/signupform";
 import { Link } from "react-router-dom";
 

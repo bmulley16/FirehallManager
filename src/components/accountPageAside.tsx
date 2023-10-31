@@ -22,7 +22,9 @@ export function ProfileAside() {
           <br />
           <br />
           <br />
-          <span className=" text-2xl">{user?.firstName}</span>
+          <span className=" text-2xl">
+            {user?.firstName} {user?.lastName}
+          </span>
         </h1>
       </div>
 
