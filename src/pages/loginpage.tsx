@@ -1,5 +1,5 @@
 import LoginForm from "../components/loginform";
-import Signup from "../components/banners/signupform";
+import Signup from "../components/forms/signupform";
 import { Link } from "react-router-dom";
 
 function LoginPage() {

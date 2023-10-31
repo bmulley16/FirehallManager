@@ -8,7 +8,6 @@ export function signUp({
   firstName,
   lastName,
   phone,
-  id,
   employeeNumber,
 }: User): User {
   const users = localStorage.getItem("users");

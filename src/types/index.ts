@@ -28,3 +28,8 @@ export interface UserQualifications {
     [qual: string]: boolean;
   };
 }
+
+export interface ProfileButtonProps {
+  buttontype: any;
+  buttonText: string;
+}

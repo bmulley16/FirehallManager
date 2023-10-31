@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { signIn } from "../utils/api";
-
+import { UserContext } from "../contexts";
+import { useContext } from "react";
+import { useUser } from "../hooks";
+import ProfileButton from "./profileButton";
 export function ProfileAside() {
+  const user = useUser();
+
   return (
     <aside className=" my-4 ml-2 rounded-md w-60 shadow   min-h-screen p-0 text-center flex flex-col  content-center bg-gray-900 space-x-4 text-white ">
       <div>
@@ -17,7 +22,7 @@ export function ProfileAside() {
           <br />
           <br />
           <br />
-          <span className=" text-2xl">Bryce Mulley</span>
+          <span className=" text-2xl">{user?.firstName}</span>
         </h1>
       </div>
 
@@ -60,6 +65,7 @@ export function ProfileAside() {
           </Link>
         </ul>
       </div>
+      <ProfileButton buttontype="submit" buttonText="Sign Out"></ProfileButton>
     </aside>
   );
 }
