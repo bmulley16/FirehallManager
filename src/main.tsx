@@ -17,7 +17,9 @@ import { SignUpPage } from "./pages/signUpPage.tsx";
 import { useState } from "react";
 import { SetUserContext, UserContext } from "./contexts";
 import { User } from "./types/index.ts";
-
+import { DailyInventory } from "./pages/dailyEquipmentInventory.tsx";
+import { StationInventories } from "./pages/stationInventory.tsx";
+import { DriverCheckSheet } from "./pages/driverCheckSheet.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,6 +78,21 @@ const router = createBrowserRouter([
   {
     path: `/signup`,
     element: <SignUpPage />,
+  },
+
+  {
+    path: `/inventories/daily-equipment-inventories`,
+    element: <DailyInventory />,
+  },
+
+  {
+    path: `/inventories/station-inventories`,
+    element: <StationInventories />,
+  },
+
+  {
+    path: `inventories/driver-checklist`,
+    element: <DriverCheckSheet />,
   },
 ]);
 

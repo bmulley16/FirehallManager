@@ -3,7 +3,7 @@ import { signIn } from "../utils/api";
 import { UserContext } from "../contexts";
 import { useContext } from "react";
 import { useUser } from "../hooks";
-import ProfileButton from "./profileButton";
+import ProfileButton from "./buttons/profileButton";
 export function ProfileAside() {
   const user = useUser();
 

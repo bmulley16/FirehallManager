@@ -1,4 +1,4 @@
-import { ProfileButtonProps } from "../types";
+import { ProfileButtonProps } from "../../types";
 import { Link } from "react-router-dom";
 function ProfileButton(props: ProfileButtonProps) {
   return (
