@@ -13,7 +13,7 @@ export function InventoriesPage() {
           </h1>
           <h3 className="text-gray-600">Station Assignment: Engine 4 Seat 3</h3>
         </div>
-        <div className="grid grid-cols-2 gap-4 my-20">
+        <div className="flex flex-col  my-20">
           <InventorySelectionButton
             link="/inventories/daily-equipment-inventories"
             text="Daily Equipment Inventories"
@@ -23,7 +23,7 @@ export function InventoriesPage() {
             text="Station Inventories"
           ></InventorySelectionButton>
           <InventorySelectionButton
-            link="inventories/driver-checklist"
+            link="/inventories/driver-checklist"
             text="Driver Checklist"
           ></InventorySelectionButton>
         </div>

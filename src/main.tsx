@@ -91,7 +91,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: `inventories/driver-checklist`,
+    path: `/inventories/driver-checklist`,
     element: <DriverCheckSheet />,
   },
 ]);

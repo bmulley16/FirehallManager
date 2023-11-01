@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export function InventorySelectionButton(props: any) {
   return (
     <Link to={props.link}>
-      <div className="bg-white col-span-2 p-4 rounded-lg shadow-md">
-        <button className="text-2xl font-bold text-blue-600 text-center mb-4">
+      <div className="bg-white col-span-2  rounded-lg shadow-md my-4 hover:shadow-xl">
+        <button className="text-2xl font-bold p-4 text-blue-600 text-center min-w-full hover:font-extrabold ">
           {props.text}
         </button>
       </div>
