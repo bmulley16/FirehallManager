@@ -30,7 +30,7 @@ export function CollapsedNavBar() {
           {firstInitial} {lastInitial}
         </h6>
       </div>
-      <ul className="flex flex-col items-center">
+      <ul className="flex flex-col items-center justify-">
         <Link to="/administration">
           <li>
             <FontAwesomeIcon icon={faFolder} />
@@ -41,24 +41,33 @@ export function CollapsedNavBar() {
             <FontAwesomeIcon icon={faShirt} />
           </li>
         </Link>
-
-        <li>
-          <FontAwesomeIcon icon={faClipboardList} />
-        </li>
-
-        <li>
-          <FontAwesomeIcon icon={faCalendarDays} />
-        </li>
-        <li>
-          <FontAwesomeIcon icon={faBook} />
-        </li>
-        <li>
-          <FontAwesomeIcon icon={faUtensils} />
-        </li>
-        <li>
-          <FontAwesomeIcon icon={faAddressBook} />
-        </li>
+        <Link to="/inventories">
+          <li>
+            <FontAwesomeIcon icon={faClipboardList} />
+          </li>
+        </Link>
+        <Link to="/overtime">
+          <li>
+            <FontAwesomeIcon icon={faCalendarDays} />
+          </li>
+        </Link>
+        <Link to="/training">
+          <li>
+            <FontAwesomeIcon icon={faBook} />
+          </li>
+        </Link>
+        <Link to="/mess-managment">
+          <li className="flex flex-col text-sm">
+            <FontAwesomeIcon icon={faUtensils} />
+          </li>
+        </Link>
+        <Link to="/contacts">
+          <li>
+            <FontAwesomeIcon icon={faAddressBook} />
+          </li>
+        </Link>
       </ul>
+      <ProfileButton buttontype="submit" buttonText=" Sign Out"></ProfileButton>
     </div>
   );
 }
