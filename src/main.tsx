@@ -97,6 +97,12 @@ const router = createBrowserRouter([
 ]);
 
 function Main() {
+  // useEffect(() => {
+  //   // Check localstorage to see if theres currently a logged in user
+  //   // if so, set the user state to its value
+  //   // if not, then you want to redirect to the login page
+  // });
+
   const [user, setUser] = useState<User | null>(null);
 
   return (
