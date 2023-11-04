@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { signIn } from "../../utils/api";
 import { UserContext } from "../../contexts";
-
+import { CollspsedNavBarIconComponent } from "../collapsednavBarIconComponent";
 import { useContext } from "react";
 import { useUser } from "../../hooks";
 import ProfileButton from "../buttons/profileButton";
@@ -23,49 +23,47 @@ export function CollapsedNavBar() {
   const firstInitial = user?.firstName.charAt(0);
   const lastInitial = user?.lastName.charAt(0);
   return (
-    <div className="max-w-3/6 min-h-screen bg-grey flex flex-col justify-evenly items-center ">
+    <div className="max-w-1/3 min-h-screen bg-grey flex flex-col justify-evenly items-center bg-gray-900 text-white ">
       <div>
-        <FontAwesomeIcon icon={faCircleUser} />
+        <FontAwesomeIcon
+          icon={faCircleUser}
+          size="2xl"
+          className=" Hover:shadow-lg"
+        />
         <h6>
-          {firstInitial} {lastInitial}
+          {firstInitial}
+          {lastInitial}
         </h6>
       </div>
-      <ul className="flex flex-col items-center justify-">
-        <Link to="/administration">
-          <li>
-            <FontAwesomeIcon icon={faFolder} />
-          </li>
-        </Link>
-        <Link to="/equipment">
-          <li>
-            <FontAwesomeIcon icon={faShirt} />
-          </li>
-        </Link>
-        <Link to="/inventories">
-          <li>
-            <FontAwesomeIcon icon={faClipboardList} />
-          </li>
-        </Link>
-        <Link to="/overtime">
-          <li>
-            <FontAwesomeIcon icon={faCalendarDays} />
-          </li>
-        </Link>
-        <Link to="/training">
-          <li>
-            <FontAwesomeIcon icon={faBook} />
-          </li>
-        </Link>
-        <Link to="/mess-managment">
-          <li className="flex flex-col text-sm">
-            <FontAwesomeIcon icon={faUtensils} />
-          </li>
-        </Link>
-        <Link to="/contacts">
-          <li>
-            <FontAwesomeIcon icon={faAddressBook} />
-          </li>
-        </Link>
+      <ul className="flex flex-col items-center justify-evenly h-96 min-w-full">
+        <CollspsedNavBarIconComponent
+          path="/administration"
+          icon={faFolder}
+        ></CollspsedNavBarIconComponent>
+        <CollspsedNavBarIconComponent
+          path="/equipment"
+          icon={faShirt}
+        ></CollspsedNavBarIconComponent>
+        <CollspsedNavBarIconComponent
+          path="/inventories"
+          icon={faClipboardList}
+        ></CollspsedNavBarIconComponent>
+        <CollspsedNavBarIconComponent
+          path="/overtime"
+          icon={faCalendarDays}
+        ></CollspsedNavBarIconComponent>
+        <CollspsedNavBarIconComponent
+          path="/training"
+          icon={faBook}
+        ></CollspsedNavBarIconComponent>
+        <CollspsedNavBarIconComponent
+          path="/mess-managment"
+          icon={faUtensils}
+        ></CollspsedNavBarIconComponent>
+        <CollspsedNavBarIconComponent
+          path="/contacts"
+          icon={faAddressBook}
+        ></CollspsedNavBarIconComponent>
       </ul>
       <ProfileButton buttontype="submit" buttonText=" Sign Out"></ProfileButton>
     </div>
