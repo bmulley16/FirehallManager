@@ -2,10 +2,10 @@ import { ProfileAside } from "../components/accountPageAside";
 import { InventorySelectionButton } from "../components/buttons/inventorySelectorbutton";
 export function InventoriesPage() {
   return (
-    <div className="flex bg-gray-100 justify-between">
+    <div className="flex bg-gray-100 ">
       <ProfileAside></ProfileAside>
 
-      <div className="w-3/4 p-4 my-8">
+      <div className="w-full p-4 my-8">
         <div className="text-center mb-8 ">
           <h1 className="text-3xl font-bold text-blue-600">
             Mount Pearl Station
