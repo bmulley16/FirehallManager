@@ -6,13 +6,13 @@ import { useUser } from "../hooks";
 import ProfileButton from "./buttons/profileButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CollapsedNavBar } from "./banners/collapsedNavBar";
+
 export function ProfileAside() {
   const user = useUser();
 
   return (
-    <aside className="w-1/3 h-full">
+    <aside className=" h-full w-1/8">
       <CollapsedNavBar></CollapsedNavBar>
-      {/* <ProfileButton buttontype="submit" buttonText="Sign Out"></ProfileButton> */}
     </aside>
   );
 }
