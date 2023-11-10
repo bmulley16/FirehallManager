@@ -21,6 +21,7 @@ export function signUp({
     lastName: lastName,
     phone: "",
     employeeNumber: 0,
+    loggedIn: false,
   };
 
   const newUsers = [...parsedUsers, user];
@@ -46,6 +47,7 @@ export function signIn(username: string, password: string): User | null {
     );
 
     if (user) {
+      user.loggedIn = true;
       return user;
     } else {
       return null;

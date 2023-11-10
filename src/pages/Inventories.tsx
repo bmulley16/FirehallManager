@@ -4,7 +4,6 @@ export function InventoriesPage() {
   return (
     <div className="flex bg-gray-100 ">
       <ProfileAside></ProfileAside>
-
       <div className="w-full p-4 my-8">
         <div className="text-center mb-8 ">
           <h1 className="text-3xl font-bold text-blue-600">

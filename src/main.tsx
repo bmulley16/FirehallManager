@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App.tsx";
+import { useEffect } from "react";
 import "./index.css";
 import { Profile } from "./pages/profile.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -104,6 +105,12 @@ function Main() {
   // });
 
   const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const loggedInUser = if()
+
+
+  })
 
   return (
     <React.StrictMode>
