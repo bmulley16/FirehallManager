@@ -25,6 +25,7 @@ function LoginForm() {
     console.log("USER", user);
     if (user) {
       setUser(user);
+      api.setLoggedInUser(user.id);
       navigate("/account");
     } else {
       alert("User does not exist");

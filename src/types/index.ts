@@ -20,7 +20,7 @@ export interface User {
   firstName: string;
   lastName: string;
   employeeNumber: number;
-  loggedIn: boolean;
+  
 }
 
 export interface UserQualifications {

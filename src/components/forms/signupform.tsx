@@ -1,13 +1,18 @@
 import { useState } from "react";
 import * as api from "../../utils/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { User } from "../../types";
+import { useSetUser } from "../../hooks";
 function Signup() {
   const [usernameinputValue, setInputValue] = useState("");
   const [passwordInputValue, setPasswordInputValue] = useState("");
   const [FirstNameInputValue, setFirstNameInputValue] = useState("");
   const [LastNameInputValue, setLastNameInputValue] = useState("");
   const [employeeNumberInputValue, setEmployeeNumberInputValue] = useState("");
+
+  const setUser = useSetUser();
+  const navigate = useNavigate();
+
   const handleChangePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPasswordInputValue(event.target.value);
   };
@@ -53,7 +58,16 @@ function Signup() {
   };
 
   const handleButtonClick = () => {
-    api.signUp(newUser);
+    const user = api.signUp(newUser);
+
+    // Set the user context
+    setUser(user);
+
+    // Set the current logged in user in local storage
+    api.setLoggedInUser(user.id);
+
+    // Redirect to the dashboard
+    navigate("/account");
   };
 
   return (
@@ -101,15 +115,14 @@ function Signup() {
             value={passwordInputValue}
             className="input"
           />
-          <Link to={"/login"}>
-            <button
-              type="submit"
-              className="hover:bg-blue-500  hover:shadow-lg"
-              onClick={handleButtonClick}
-            >
-              Sign Up
-            </button>
-          </Link>
+
+          <button
+            type="submit"
+            className="hover:bg-blue-500  hover:shadow-lg"
+            onClick={handleButtonClick}
+          >
+            Sign Up
+          </button>
         </form>
       </div>
     </div>

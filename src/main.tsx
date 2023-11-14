@@ -106,11 +106,12 @@ function Main() {
 
   const [user, setUser] = useState<User | null>(null);
 
-  useEffect(() => {
-    const loggedInUser = if()
+  console.log("User ", user);
 
+  // useEffect(() => {
+  //   const loggedInUser = if()
 
-  })
+  // })
 
   return (
     <React.StrictMode>

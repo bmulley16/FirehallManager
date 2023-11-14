@@ -1,5 +1,7 @@
 import { User } from "../types";
 import { UserId } from "../types";
+//@ts-ignore
+import { v4 as uuid } from "uuid";
 
 //TODO update parameter to take a User object
 export function signUp({
@@ -14,14 +16,13 @@ export function signUp({
   const parsedUsers: User[] = users ? JSON.parse(users) : [];
 
   const user: User = {
-    id: "",
+    id: uuid(),
     username: username,
     password: password,
     firstName: firstName,
     lastName: lastName,
-    phone: "",
-    employeeNumber: 0,
-    loggedIn: false,
+    phone: phone,
+    employeeNumber: employeeNumber,
   };
 
   const newUsers = [...parsedUsers, user];
@@ -47,7 +48,6 @@ export function signIn(username: string, password: string): User | null {
     );
 
     if (user) {
-      user.loggedIn = true;
       return user;
     } else {
       return null;
@@ -67,6 +67,18 @@ export function signIn(username: string, password: string): User | null {
   // );
 
   // return user ? user : null
+}
+
+export function setLoggedInUser(id: User["id"] | null) {
+  if (id) {
+    localStorage.setItem("loggedInUser", id);
+  } else {
+    localStorage.removeItem("loggedInUser");
+  }
+}
+
+export function getLoggedInUser(): User["id"] | null {
+  return localStorage.getItem("loggedInUser");
 }
 
 // dwf891-bjdsuw-128dka-Pdui19
