@@ -1,5 +1,4 @@
 // DailyInventory.jsx
-import React from "react";
 import { VehicleEquipmentComponent } from "../components/vehicleequipmentComponent";
 import { ProfileAside } from "../components/accountPageAside";
 
@@ -8,10 +7,106 @@ const titles = [
     name: "Hydrant Keys",
     key: "hydrantKeys",
   },
+
+  {
+    name: "Ground Monitor Stand",
+    key: "groundMonitorStand",
+  },
+
+  {
+    name: "Deck Monitor Extension",
+    key: "deckMonitorExtension",
+  },
+
+  {
+    name: "Stream Straightener",
+    key: "streamStraightener",
+  },
+
+  {
+    name: "Straight Bore Tips",
+    key: "straightBoreTips",
+  },
+
+  {
+    name: "Metal Bucket",
+    key: "metalBuckets",
+  },
+
+  {
+    name: "Deck Monitor Extension",
+    key: "deckMonitorExtension",
+  },
+
+  {
+    name: "Chimney Bombs",
+    key: "chimneyBombs",
+  },
+
+  {
+    name: "Hose Straps",
+    key: "hoseStraps",
+  },
+
+  {
+    name: "Standard Stortz Connection",
+    key: "standardStortzConnection",
+  },
+
+  {
+    name: "65mm - 100mm Stortz Connection",
+    key: "angleStortz",
+  },
+
+  {
+    name: "Chimney Nozzle",
+    key: "chimneyNozzle",
+  },
+
+  {
+    name: "Cellar Nozzle",
+    key: "cellarNozzle",
+  },
+
+  {
+    name: "Strainer",
+    key: "strainer",
+  },
+
+  {
+    name: "Hydrant Gate",
+    key: "hydrantGate",
+  },
 ];
 
+interface Inventory {
+  engines: Engine[];
+}
+
+interface Engine {
+  pockets: Pocket[];
+}
+
+interface Pocket {
+  [key: string]: number;
+  hydrantKeys: number;
+  groundMonitorStand: number;
+  deckMonitorStand: number;
+  streamStraightener: number;
+  straightBoreTips: number;
+  metalBucket: number;
+  chimneyBombs: number;
+  hoseStraps: number;
+  standardStortzConnection: number;
+  angleStortz: number;
+  chimneyNozzle: number;
+  cellarNozzle: number;
+  strainer: number;
+  hydrantGate: number;
+}
+
 export function DailyInventory() {
-  const inventories = [
+  const inventories: Inventory[] = [
     {
       engines: [
         {
@@ -20,6 +115,17 @@ export function DailyInventory() {
               hydrantKeys: 2,
               groundMonitorStand: 1,
               deckMonitorStand: 1,
+              streamStraightener: 1,
+              straightBoreTips: 4,
+              metalBucket: 1,
+              chimneyBombs: 10,
+              hoseStraps: 3,
+              standardStortzConnection: 1,
+              angleStortz: 1,
+              chimneyNozzle: 1,
+              cellarNozzle: 1,
+              strainer: 1,
+              hydrantGate: 1,
             },
           ],
         },
@@ -29,33 +135,17 @@ export function DailyInventory() {
 
   const keys = Object.keys(inventories[0].engines[0].pockets[0]);
 
+  // const entries = Object.entries(inventories[0].engines[0].pockets[0])
+  // const [key, value] = entries[0]
+
   const components = keys.map((key) => {
-    <VehicleEquipmentComponent
-      text={titles.find((title) => title.key === key)?.name}
-      quantity={2}
-    />;
+    return (
+      <VehicleEquipmentComponent
+        text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
+        quantity={inventories[0].engines[0]?.pockets[0][key]}
+      />
+    );
   });
-
-  const stationinventories = {
-    Stations: {
-      Engine4: {
-        pocket1: {
-          hydrantKeys: 2,
-        },
-        pocket2: {},
-        pocket3: {},
-        pocket4: {},
-        pocket5: {},
-        pocket6: {},
-        pocket7: {},
-        pocket8: {},
-        pocket9: {},
-        pocket10: {},
-      },
-
-      Rescue4: {},
-    },
-  };
 
   return (
     <div className="flex">
@@ -64,28 +154,6 @@ export function DailyInventory() {
         <div className="mb-4">
           <h1 className="text-3xl font-bold">Engine 4</h1>
         </div>
-
-        <VehicleEquipmentComponent text="Hydrant Keys" quantity={2} />
-        <VehicleEquipmentComponent text="Ground Monitor Stand" quantity={1} />
-        <VehicleEquipmentComponent text="Deck Monitor Stand" quantity={1} />
-        <VehicleEquipmentComponent text="Stream Straightener" quantity={1} />
-        <VehicleEquipmentComponent text="Straight Bore Tips" quantity={4} />
-        <VehicleEquipmentComponent text="Metal Bucket" quantity={1} />
-        <VehicleEquipmentComponent text="Chimney Bombs" quantity={10} />
-        <VehicleEquipmentComponent text="Hose Straps" quantity={3} />
-        <VehicleEquipmentComponent
-          text="Standard Stortz Connection"
-          quantity={1}
-        />
-        <VehicleEquipmentComponent
-          text="65mm - 100mm Stortz Connection"
-          quantity={1}
-        />
-        <VehicleEquipmentComponent text="Chimney Nozzle" quantity={1} />
-        <VehicleEquipmentComponent text="Cellar Nozzle" quantity={1} />
-        <VehicleEquipmentComponent text="Strainer" quantity={1} />
-        <VehicleEquipmentComponent text="Hydrant Gate" quantity={1} />
-
         {components}
       </div>
     </div>

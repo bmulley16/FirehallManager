@@ -32,3 +32,35 @@ function OvertimeBlock() {
 }
 
 function ProjectionBlock() {}
+
+// data structure:
+
+/**
+ * - opt into overtime (track this)
+ * - each shift keeps track of the last called person (track this)
+ * - each shift has a overtime priority (track this)
+ * - each shift has a normal overtime and a 4 hour sequence overtime (track this)
+ * - each person can choose to be paid in cash or bank the hours (track this)
+ * - there is a limit for banked hours (track this)
+ * - order of operations is
+ *  - get next squad
+ *  - start at tracked last person
+ *  - iterate through the list to tracked last person - 1
+ *  - go to next squad
+ */
+
+// Normal overtime rotation
+
+// A | C B D
+// B | D C A
+// C | A D B
+// D | B A C
+
+//  They go in alphabetical order and have no impact on eachother.
+
+// 4- hour sequence (everything that is under 12 hours)
+
+//  A |  D C B
+//  B |  A D C
+//  C |  B A D
+//  D |  C B A
