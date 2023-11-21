@@ -22,10 +22,6 @@ export function VehicleEquipmentComponent(props: any) {
         <h1 className="text-xl font-semibold">{props.text}</h1>
         <h2 className="text-sm text-gray-600">Quantity: {props.quantity}</h2>
       </div>
-
-      <div>
-        <h1>Pocket 1</h1>
-      </div>
     </div>
   );
 }

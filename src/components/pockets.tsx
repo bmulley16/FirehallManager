@@ -1,11 +1,6 @@
-// DailyInventory.jsx
-import { VehicleEquipmentComponent } from "../components/vehicleequipmentComponent";
-import { ProfileAside } from "../components/accountPageAside";
-import { useState } from "react";
+import { VehicleEquipmentComponent } from "./vehicleequipmentComponent";
 import { Inventory } from "../types";
-import { Engine } from "../types";
-import { Pocket } from "../types";
-import { Pockets } from "../components/pockets";
+import { useState } from "react";
 
 const titles = [
   {
@@ -84,7 +79,11 @@ const titles = [
   },
 ];
 
-export function DailyInventory() {
+export function Pockets(props: string) {
+  const [renderInventory, setrenderInventory] = useState(false);
+  const handleClick = () => {
+    setrenderInventory(!renderInventory);
+  };
   const inventories: Inventory[] = [
     {
       engines: [
@@ -114,28 +113,19 @@ export function DailyInventory() {
 
   const keys = Object.keys(inventories[0].engines[0].pockets[0]);
 
-  // const entries = Object.entries(inventories[0].engines[0].pockets[0])
-  // const [key, value] = entries[0]
-
-  // const components = keys.map((key) => {
-  //   return (
-
-  //     <VehicleEquipmentComponent
-  //       text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
-  //       quantity={inventories[0].engines[0]?.pockets[0][key]}
-  //     />
-  //   );
-  // });
+  const components = keys.map((key) => {
+    return (
+      <VehicleEquipmentComponent
+        text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
+        quantity={inventories[0].engines[0]?.pockets[0][key]}
+      ></VehicleEquipmentComponent>
+    );
+  });
 
   return (
-    <div className="flex">
-      <ProfileAside></ProfileAside>
-      <div className="container mx-auto p-8">
-        <div className="mb-4">
-          <h1 className="text-3xl font-bold">Engine 4</h1>
-        </div>
-        <Pockets></Pockets>
-      </div>
+    <div onClick={handleClick}>
+      <div>props.text</div>
+      {renderInventory && components}
     </div>
   );
 }

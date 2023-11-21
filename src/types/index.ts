@@ -34,3 +34,31 @@ export interface ProfileButtonProps {
   buttontype: any;
   buttonText: string;
 }
+
+
+
+export interface Inventory {
+  engines: Engine[];
+}
+
+export interface Engine {
+  pockets: Pocket[];
+}
+
+export interface Pocket {
+  [key: string]: number;
+  hydrantKeys: number;
+  groundMonitorStand: number;
+  deckMonitorStand: number;
+  streamStraightener: number;
+  straightBoreTips: number;
+  metalBucket: number;
+  chimneyBombs: number;
+  hoseStraps: number;
+  standardStortzConnection: number;
+  angleStortz: number;
+  chimneyNozzle: number;
+  cellarNozzle: number;
+  strainer: number;
+  hydrantGate: number;
+}
