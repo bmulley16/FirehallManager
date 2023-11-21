@@ -20,7 +20,6 @@ export interface User {
   firstName: string;
   lastName: string;
   employeeNumber: number;
-  
 }
 
 export interface UserQualifications {
@@ -34,8 +33,6 @@ export interface ProfileButtonProps {
   buttontype: any;
   buttonText: string;
 }
-
-
 
 export interface Inventory {
   engines: Engine[];
@@ -61,4 +58,8 @@ export interface Pocket {
   cellarNozzle: number;
   strainer: number;
   hydrantGate: number;
+}
+
+export interface AdministrationSelector {
+  title: string;
 }

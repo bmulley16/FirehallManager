@@ -117,15 +117,14 @@ export function DailyInventory() {
   // const entries = Object.entries(inventories[0].engines[0].pockets[0])
   // const [key, value] = entries[0]
 
-  // const components = keys.map((key) => {
-  //   return (
-
-  //     <VehicleEquipmentComponent
-  //       text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
-  //       quantity={inventories[0].engines[0]?.pockets[0][key]}
-  //     />
-  //   );
-  // });
+  const components = keys.map((key) => {
+    return (
+      <VehicleEquipmentComponent
+        text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
+        quantity={inventories[0].engines[0]?.pockets[0][key]}
+      />
+    );
+  });
 
   return (
     <div className="flex">
@@ -134,7 +133,7 @@ export function DailyInventory() {
         <div className="mb-4">
           <h1 className="text-3xl font-bold">Engine 4</h1>
         </div>
-        <Pockets></Pockets>
+        {/* <Pockets></Pockets> */}
       </div>
     </div>
   );
