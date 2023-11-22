@@ -44,20 +44,20 @@ export interface Engine {
 
 export interface Pocket {
   [key: string]: number;
-  hydrantKeys: number;
-  groundMonitorStand: number;
-  deckMonitorStand: number;
-  streamStraightener: number;
-  straightBoreTips: number;
-  metalBucket: number;
-  chimneyBombs: number;
-  hoseStraps: number;
-  standardStortzConnection: number;
-  angleStortz: number;
-  chimneyNozzle: number;
-  cellarNozzle: number;
-  strainer: number;
-  hydrantGate: number;
+  // hydrantKeys: number;
+  // groundMonitorStand: number;
+  // deckMonitorStand: number;
+  // streamStraightener: number;
+  // straightBoreTips: number;
+  // metalBucket: number;
+  // chimneyBombs: number;
+  // hoseStraps: number;
+  // standardStortzConnection: number;
+  // angleStortz: number;
+  // chimneyNozzle: number;
+  // cellarNozzle: number;
+  // strainer: number;
+  // hydrantGate: number;
 }
 
 export interface AdministrationSelector {

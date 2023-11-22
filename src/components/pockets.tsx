@@ -77,9 +77,166 @@ const titles = [
     name: "Hydrant Gate",
     key: "hydrantGate",
   },
+  {
+    name: "65mm Wye",
+    key: "sixtyFiveWye",
+  },
+
+  {
+    name: "65mm Siamese",
+    key: "sixtyFiveSiamese",
+  },
+  {
+    name: "65mm - 38mm Gated Wye",
+    key: "sixtyFiveThirtyEightWye",
+  },
+  {
+    name: "38mm - 38mm Gated Wye",
+    key: "thirtyEightThirtyEightWye",
+  },
+  {
+    name: " 65mm Nozzle",
+    key: "sixtyFiveNozzle",
+  },
+
+  {
+    name: "65mm Double Females",
+    key: "sixtyFiveDoubleFemale",
+  },
+  {
+    name: "65mm Double Males",
+    key: "sixtyFiveDoubleMale",
+  },
+  {
+    name: "65mm-38mm Reducer",
+    key: "sixtyFiveThirtyEightReducer",
+  },
+  {
+    name: "38mm Double Male",
+    key: "thirtyEightDoubleMale",
+  },
+  {
+    name: "38mm Double Female",
+    key: "thirtyEightDoubleFemale",
+  },
+  {
+    name: "Hard Suction Key",
+    key: "hardSuctionKey",
+  },
+
+  {
+    name: "30m - 45m Hose",
+    key: "longHighRiseHose",
+  },
+
+  {
+    name: "Emergency Flares",
+    key: "emergencyFlares",
+  },
+
+  {
+    name: "100mm Soft Suction",
+    key: "oneHundredmmSoftSuction",
+  },
+  {
+    name: "Wheel Blocks",
+    key: "wheelBlocks",
+  },
+  {
+    name: "Hose Keys",
+    key: "hoseKeys",
+  },
+
+  {
+    name: "Stortz Keys",
+    key: "stortzKeys",
+  },
+  {
+    name: "Ball Peen Hammer",
+    key: "ballPeenHammer",
+  },
+  {
+    name: "Rubber Hammer",
+    key: "rubberHammer",
+  },
+  // Pocket 2:
+
+  {
+    name: "3m - 65m Hose",
+    key: "shortHighRiseHose",
+  },
+  {
+    name: "45mm Nozzle",
+    key: "fourtyFiveMillimeterNozzle",
+  },
+
+  {
+    name: "30m - 45m Hose",
+    key: "longHighRiseHose",
+  },
+  {
+    name: "65mm X 38mm Gated Wye",
+    key: "sixtyFiveThirtyEightGatedWye",
+  },
+  {
+    name: "Door Wedges",
+    key: "doorWedges",
+  },
+  {
+    name: "Sprinkler Wedges",
+    key: "sprinklerWedges",
+  },
+  {
+    name: "45mm Standard Pipe Double Female",
+    key: "shortDoubleFemale",
+  },
+  {
+    name: "14m Lashings",
+    key: "fourteenMeterLashings",
+  },
+  {
+    name: "100ft Utility Rope",
+    key: "oneHunderedFootUtilityRope",
+  },
+  {
+    name: "PFD",
+    key: "pfd",
+  },
+  {
+    name: "Life-Ring and Throw rope",
+    key: "lifeRightThrowRope",
+  },
+  {
+    name: "Throw Bag",
+    key: "throwBag",
+  },
+  {
+    name: "Soap Sprayer",
+    key: "soapSprayer",
+  },
+  {
+    name: "Garden Hose and Nozzle",
+    key: "gardenHoseandNozzle",
+  },
+  {
+    name: "Scrub Brush",
+    key: "scrubBrush",
+  },
+  {
+    name: "2 1/2 to 3/4 Adapter",
+    key: "twoandHalftoThreeQuarterAdapter",
+  },
+  {
+    name: "Soap",
+    key: "soap",
+  },
+  {
+    name: "Bucket",
+    key: "bucket",
+  },
 ];
 
-export function Pockets(props: string) {
+export function Pockets(props: any) {
   const [renderInventory, setrenderInventory] = useState(false);
   const handleClick = () => {
     setrenderInventory(!renderInventory);
@@ -104,6 +261,44 @@ export function Pockets(props: string) {
               cellarNozzle: 1,
               strainer: 1,
               hydrantGate: 1,
+              sixtyFiveWye: 1,
+              sixtyFiveSiamese: 1,
+              sixtyFiveThirtyEightGatedWye: 1,
+              thirtyEightThirtyEightWye: 1,
+              sixtyFiveNozzle: 2,
+              sixtyFiveDoubleFemale: 2,
+              sixtyFiveDoubleMale: 2,
+              sixtyFiveThirtyEightReducer: 1,
+              thirtyEightDoubleMale: 1,
+              thirtyEightDoubleFemale: 1,
+              hardSuctionKey: 1,
+              emergencyFlares: 1,
+              oneHundredmmSoftSuction: 1,
+              wheelBlocks: 2,
+              hoseKeys: 4,
+              stortzKeys: 2,
+              ballPeenHammer: 1,
+              rubberHammer: 1,
+            },
+            {
+              shortHighRiseHose: 1,
+              fourtyFiveMillimeterNozzle: 2,
+              longHighRiseHose: 1,
+              sixtyFiveThirtyEightGatedWye: 1,
+              doorWedges: 6,
+              sprinklerWedges: 12,
+              shortDoubleFemale: 1,
+              fourteenMeterLashings: 3,
+              oneHunderedFootUtilityRope: 1,
+              pfd: 2,
+              lifeRightThrowRope: 1,
+              throwBag: 1,
+              soapSprayer: 1,
+              gardenHoseandNozzle: 1,
+              scrubBrush: 1,
+              twoandHalftoThreeQuarterAdapter: 1,
+              soap: 1,
+              bucket: 1,
             },
           ],
         },
@@ -111,21 +306,24 @@ export function Pockets(props: string) {
     },
   ];
 
-  const keys = Object.keys(inventories[0].engines[0].pockets[0]);
+  const pockets = inventories[0].engines[0].pockets;
 
-  const components = keys.map((key) => {
-    return (
+  const allComponents = pockets.map((pocket, index) => {
+    const keys = Object.keys(pocket);
+    const components = keys.map((key) => (
       <VehicleEquipmentComponent
+        key={`${index}-${key}`} // Ensure a unique key for each component
         text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
-        quantity={inventories[0].engines[0]?.pockets[0][key]}
-      ></VehicleEquipmentComponent>
-    );
+        quantity={pocket[key]}
+      />
+    ));
+    return <div key={index}>{components}</div>;
   });
 
   return (
     <div onClick={handleClick}>
-      <div>props.text</div>
-      {renderInventory && components}
+      {props.text}
+      {renderInventory && allComponents}
     </div>
   );
 }

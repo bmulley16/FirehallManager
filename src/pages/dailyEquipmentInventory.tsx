@@ -133,7 +133,7 @@ export function DailyInventory() {
         <div className="mb-4">
           <h1 className="text-3xl font-bold">Engine 4</h1>
         </div>
-        {/* <Pockets></Pockets> */}
+        <Pockets text="Pocket 1"></Pockets>
       </div>
     </div>
   );
