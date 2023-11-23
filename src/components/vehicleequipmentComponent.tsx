@@ -16,7 +16,7 @@ export function VehicleEquipmentComponent(props: any) {
   return (
     <div
       onClick={handleClick}
-      className={`py-4 px-6 rounded-lg flex items-center justify-between ${bgColor} border border-gray-300 mb-4`}
+      className={` py-4 px-6 rounded-lg flex items-center justify-between ${bgColor} border border-gray-300 mb-4`}
     >
       <div>
         <h1 className="text-xl font-semibold">{props.text}</h1>

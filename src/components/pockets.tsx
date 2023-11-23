@@ -237,6 +237,17 @@ const titles = [
 ];
 
 export function Pockets(props: any) {
+  const [bgColor, setBgColor] = useState("bg-white");
+  const [isPressed, setIsPressed] = useState(false);
+
+  const handleColor = () => {
+    setBgColor((prevColor) =>
+      prevColor === "bg-green-500" ? "bg-white" : "bg-green-500"
+    );
+
+    setIsPressed(true);
+  };
+
   const [renderInventory, setrenderInventory] = useState(false);
   const handleClick = () => {
     setrenderInventory(!renderInventory);
@@ -312,16 +323,19 @@ export function Pockets(props: any) {
     const keys = Object.keys(pocket);
     const components = keys.map((key) => (
       <VehicleEquipmentComponent
-        key={`${index}-${key}`} // Ensure a unique key for each component
+        key={`${index}-${key}`}
         text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
         quantity={pocket[key]}
       />
     ));
-    return <div key={index}>{components}</div>;
+    return components;
   });
 
   return (
-    <div onClick={handleClick}>
+    <div
+      className={`py-4 px-6 rounded-lg flex items-center justify-between ${bgColor} border border-gray-300 mb-4 flex flex-col`}
+      onClick={handleClick}
+    >
       {props.text}
       {renderInventory && allComponents}
     </div>
