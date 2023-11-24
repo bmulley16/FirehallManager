@@ -134,6 +134,10 @@ export function DailyInventory() {
           <h1 className="text-3xl font-bold">Engine 4</h1>
         </div>
         <Pockets text="Pocket 1"></Pockets>
+        <Pockets text="Pocket 2"></Pockets>
+        <Pockets text="Pocket 3"></Pockets>
+        <Pockets text="Pocket 4"></Pockets>
+        <Pockets text="Pocket 5"></Pockets>
       </div>
     </div>
   );

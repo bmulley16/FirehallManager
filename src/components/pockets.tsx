@@ -321,13 +321,19 @@ export function Pockets(props: any) {
 
   const allComponents = pockets.map((pocket, index) => {
     const keys = Object.keys(pocket);
-    const components = keys.map((key) => (
-      <VehicleEquipmentComponent
-        key={`${index}-${key}`}
-        text={titles.find((title) => title.key === key)?.name ?? "Unknown Item"}
-        quantity={pocket[key]}
-      />
-    ));
+    const components = keys.map(
+      (key) => (
+        <VehicleEquipmentComponent
+          key={`${index}-${key}`}
+          text={
+            titles.find((title) => title.key === key)?.name ?? "Unknown Item"
+          }
+          quantity={pocket[key]}
+        />
+      ),
+      console.log(index)
+    );
+    console.log(index);
     return components;
   });
 
