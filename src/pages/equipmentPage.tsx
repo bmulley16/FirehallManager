@@ -6,11 +6,10 @@ export function EquipmentPage() {
       <aside>
         <ProfileAside></ProfileAside>
       </aside>
-      <div className="flex">
-        <div>
-          <h1>You are currently Stationed at Mount</h1>
+      <div className="w-full h-screen bg-[url('C:\Projects\FirehallManager\Images\personalInventorybackground.jpg')] bg-center bg-cover bg-no-repeat grid-rows-3 grid-cols-2 gap-4">
+        <div className=" col-span-2">
+          <h1 className="text-white">Hello everyone</h1>
         </div>
-        <div></div>
       </div>
     </div>
   );

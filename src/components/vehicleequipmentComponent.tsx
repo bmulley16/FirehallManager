@@ -6,6 +6,7 @@ export function VehicleEquipmentComponent(props: any) {
   const [isPressed, setIsPressed] = useState(false);
 
   const handleClick = () => {
+    event?.stopPropagation();
     setBgColor((prevColor) =>
       prevColor === "bg-green-500" ? "bg-white" : "bg-green-500"
     );
