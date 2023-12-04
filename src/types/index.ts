@@ -20,6 +20,7 @@ export interface User {
   firstName: string;
   lastName: string;
   employeeNumber: number;
+  overtime: boolean;
 }
 
 export interface UserQualifications {

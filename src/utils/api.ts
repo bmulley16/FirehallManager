@@ -23,6 +23,7 @@ export function signUp({
     lastName: lastName,
     phone: phone,
     employeeNumber: employeeNumber,
+    overtime: false,
   };
 
   const newUsers = [...parsedUsers, user];
@@ -77,8 +78,16 @@ export function setLoggedInUser(id: User["id"] | null) {
   }
 }
 
-export function getLoggedInUser(): User["id"] | null {
-  return localStorage.getItem("loggedInUser");
+export function getLoggedInUser(): User | null {
+  const loggedInUserId = localStorage.getItem("loggedInUser");
+  const users = localStorage.getItem("users");
+  if (users === null) {
+    return null;
+  } else {
+    const usersArray: User[] = JSON.parse(users);
+    const user = usersArray.find((user) => user.id === loggedInUserId);
+    return user ? user : null;
+  }
 }
 
 // dwf891-bjdsuw-128dka-Pdui19

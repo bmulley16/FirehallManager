@@ -1,14 +1,40 @@
 import Calender from "../components/Calender-and-staffing/calender";
 import { ProfileAside } from "../components/accountPageAside";
 import { OvertimeGridBlocks } from "../components/overtimePageGridBlocks";
+import { useSetUser } from "../hooks/useSetUser";
+import { useUser } from "../hooks/useUser";
+import * as api from "../utils/api";
 
 export function OvertimePage() {
+  const user = useUser();
+  const setUser = useSetUser();
+
+  const setOvertimeBtn = () => {
+    console.log("user: ", user);
+    if (!user) {
+      return;
+    }
+
+    console.log("overtime?: ", user.overtime);
+
+    setUser({
+      ...user,
+      overtime: !user.overtime,
+    });
+  };
+
   return (
     <div className="flex h-screen bg-gray-800">
       <ProfileAside />
       <div className="flex-1">
         <div className="h-screen grid grid-cols-3 gap-4 p-4">
-          <OvertimeBlock />
+          {/* <OvertimeBlock /> */}
+          <OvertimeGridBlocks>
+            <button className="btn btn-blue" onClick={setOvertimeBtn}>
+              click here
+            </button>
+            <p>Is overtime?: {user?.overtime}</p>
+          </OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Projection"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Leave Balances"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Shift Trades"></OvertimeGridBlocks>
@@ -30,8 +56,6 @@ function OvertimeBlock() {
     </OvertimeGridBlocks>
   );
 }
-
-function ProjectionBlock() {}
 
 // data structure:
 

@@ -21,6 +21,8 @@ import { User } from "./types/index.ts";
 import { DailyInventory } from "./pages/dailyEquipmentInventory.tsx";
 import { StationInventories } from "./pages/stationInventory.tsx";
 import { DriverCheckSheet } from "./pages/driverCheckSheet.tsx";
+import { getLoggedInUser } from "./utils/api.ts";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -105,6 +107,12 @@ function Main() {
   // });
 
   const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const loggedInUser = getLoggedInUser();
+    if (loggedInUser != null) {
+    }
+  }, []);
 
   console.log("User ", user);
 

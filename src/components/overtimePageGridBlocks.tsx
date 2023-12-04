@@ -6,7 +6,6 @@ export function OvertimeGridBlocks(props: any) {
       </h2>
 
       <div className="bg-blue-200 p-4 mt-4 rounded-lg w-full h-full">
-        {/* <p className="text-base text-gray-700 h-full">{props.textContent}</p> */}
         {props.children}
       </div>
     </div>

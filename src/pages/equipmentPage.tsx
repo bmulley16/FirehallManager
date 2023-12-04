@@ -1,5 +1,5 @@
 import { ProfileAside } from "../components/accountPageAside";
-
+import * as utils from "../utils/api";
 export function EquipmentPage() {
   return (
     <div className=" flex">
