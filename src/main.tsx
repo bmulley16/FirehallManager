@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App.tsx";
 import { useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./index.css";
 import { Profile } from "./pages/profile.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -22,6 +23,7 @@ import { DailyInventory } from "./pages/dailyEquipmentInventory.tsx";
 import { StationInventories } from "./pages/stationInventory.tsx";
 import { DriverCheckSheet } from "./pages/driverCheckSheet.tsx";
 import { getLoggedInUser } from "./utils/api.ts";
+import * as api from "./utils/api.ts";
 
 const router = createBrowserRouter([
   {
@@ -100,26 +102,18 @@ const router = createBrowserRouter([
 ]);
 
 function Main() {
-  // useEffect(() => {
-  //   // Check localstorage to see if theres currently a logged in user
-  //   // if so, set the user state to its value
-  //   // if not, then you want to redirect to the login page
-  // });
-
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const loggedInUser = getLoggedInUser();
     if (loggedInUser != null) {
+      setUser(loggedInUser);
+    } else {
+      <Navigate to="/login"></Navigate>;
     }
-  }, []);
+  }, [user]);
 
   console.log("User ", user);
-
-  // useEffect(() => {
-  //   const loggedInUser = if()
-
-  // })
 
   return (
     <React.StrictMode>
