@@ -11,6 +11,7 @@ export function signUp({
   lastName,
   phone,
   employeeNumber,
+  platoon,
 }: User): User {
   const users = localStorage.getItem("users");
   const parsedUsers: User[] = users ? JSON.parse(users) : [];
@@ -24,6 +25,7 @@ export function signUp({
     phone: phone,
     employeeNumber: employeeNumber,
     overtime: false,
+    platoon: platoon,
   };
 
   const newUsers = [...parsedUsers, user];

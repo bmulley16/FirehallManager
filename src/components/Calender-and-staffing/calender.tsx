@@ -25,21 +25,42 @@ export default function Calender() {
     setCurrentDatetime(currentDatetime.minus({ months: num }));
   };
 
+  const [platoonColorRender, setPlatoonColorRender] = useState("");
   const daysofWeekCells = daysofWeek.map((day) => <Cell key={day}>{day}</Cell>);
 
   const daysInMonth = currentDatetime.daysInMonth;
   const renderDaysInMonth = () => {
     // if (!daysInMonth) - alternative
     if (daysInMonth !== undefined) {
+      const generateShiftColors = (shift: string | undefined): string => {
+        switch (shift) {
+          case "A":
+            return "bg-blue-400";
+          case "B":
+            return "bg-green-400";
+          case "C":
+            return "bg-yellow-400";
+          case "D":
+            return "bg-red-400";
+          default:
+            return "";
+        }
+      };
       const cells = [];
+
       for (let i = 1; i <= daysInMonth; i++) {
         const dailyNavigation = () => {
           setSelectedDay(i);
+         selectedDay !== null ? () => {
+          if(selectedDay % 1 === 0){
+            shift
+          }
+         }
         };
         cells.push(
           <Link to={`/overtime/daily-overview`}>
             <Cell
-              className="hover:font-bold"
+              className="hover:font-bold" {generateShiftColors()}
               onClick={() => setSelectedDay(i)}
               key={i}
             >

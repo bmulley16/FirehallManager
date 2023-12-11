@@ -9,6 +9,7 @@ function Signup() {
   const [FirstNameInputValue, setFirstNameInputValue] = useState("");
   const [LastNameInputValue, setLastNameInputValue] = useState("");
   const [employeeNumberInputValue, setEmployeeNumberInputValue] = useState("");
+  const [platoonSchedule, setPlatoonSchedule] = useState("");
 
   const setUser = useSetUser();
   const navigate = useNavigate();
@@ -33,6 +34,11 @@ function Signup() {
   ) => {
     setEmployeeNumberInputValue(event.target.value);
   };
+  const handlePlatoonSchedule = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setPlatoonSchedule(event.target.value);
+  };
 
   const createdAccounts = function storingCreatedAccounts() {
     localStorage.setItem(
@@ -55,6 +61,8 @@ function Signup() {
     lastName: LastNameInputValue,
     phone: "",
     employeeNumber: 0,
+    overtime: true,
+    platoon: "",
   };
 
   const handleButtonClick = () => {

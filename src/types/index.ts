@@ -21,6 +21,7 @@ export interface User {
   lastName: string;
   employeeNumber: number;
   overtime: boolean;
+  platoon: string;
 }
 
 export interface UserQualifications {
