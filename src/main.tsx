@@ -111,7 +111,7 @@ function Main() {
     } else {
       <Navigate to="/login"></Navigate>;
     }
-  }, [user]);
+  }, []);
 
   console.log("User ", user);
 

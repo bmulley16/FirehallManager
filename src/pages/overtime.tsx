@@ -29,11 +29,10 @@ export function OvertimePage() {
       <div className="flex-1">
         <div className="h-screen grid grid-cols-3 gap-4 p-4">
           {/* <OvertimeBlock /> */}
-          <OvertimeGridBlocks>
+          <OvertimeGridBlocks heading="Overtime">
             <button className="btn btn-blue" onClick={setOvertimeBtn}>
               click here
             </button>
-            <p>Is overtime?: {user?.overtime}</p>
           </OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Projection"></OvertimeGridBlocks>
           <OvertimeGridBlocks heading="Leave Balances"></OvertimeGridBlocks>

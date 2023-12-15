@@ -4,6 +4,7 @@ import Cell from "./cell";
 import { useState } from "react";
 import DailyOnClickComponent from "../../pages/dailyRenderedCalenderInterface";
 import { link } from "fs";
+import { useNavigate } from "react-router-dom";
 const daysofWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", " Fri", "Sat"];
 
 // luxon days of week and month stuff
@@ -30,37 +31,24 @@ export default function Calender() {
 
   const daysInMonth = currentDatetime.daysInMonth;
   const renderDaysInMonth = () => {
-    // if (!daysInMonth) - alternative
+    const shiftColors = [
+      "bg-blue-400",
+      "bg-green-400",
+      "bg-yellow-400",
+      "bg-red-400",
+    ];
     if (daysInMonth !== undefined) {
-      const generateShiftColors = (shift: string | undefined): string => {
-        switch (shift) {
-          case "A":
-            return "bg-blue-400";
-          case "B":
-            return "bg-green-400";
-          case "C":
-            return "bg-yellow-400";
-          case "D":
-            return "bg-red-400";
-          default:
-            return "";
-        }
-      };
       const cells = [];
-
+      // fix the i = 1 to the difference in time
       for (let i = 1; i <= daysInMonth; i++) {
-        const dailyNavigation = () => {
-          setSelectedDay(i);
-         selectedDay !== null ? () => {
-          if(selectedDay % 1 === 0){
-            shift
-          }
-         }
-        };
+        const navigate = useNavigate();
+        // add iterator ontop of the first of month maths
+        const shiftIndex = i % 4;
+        const color = shiftColors[shiftIndex];
         cells.push(
           <Link to={`/overtime/daily-overview`}>
             <Cell
-              className="hover:font-bold" {generateShiftColors()}
+              className={`hover:font-bold ${color}`}
               onClick={() => setSelectedDay(i)}
               key={i}
             >
