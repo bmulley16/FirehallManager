@@ -4,6 +4,7 @@ import { OvertimeGridBlocks } from "../components/overtimePageGridBlocks";
 import { useSetUser } from "../hooks/useSetUser";
 import { useUser } from "../hooks/useUser";
 import * as api from "../utils/api";
+import { AdminComponent } from "../components/adminComponent";
 
 export function OvertimePage() {
   const user = useUser();
@@ -26,6 +27,7 @@ export function OvertimePage() {
   return (
     <div className="flex h-screen bg-gray-800">
       <ProfileAside />
+      <AdminComponent></AdminComponent>
       <div className="flex-1">
         <div className="h-screen grid grid-cols-3 gap-4 p-4">
           {/* <OvertimeBlock /> */}
