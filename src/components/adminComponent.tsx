@@ -1,6 +1,7 @@
 import * as api from "../utils/api";
 import { useUser } from "../hooks";
 import { useSetUser } from "../hooks";
+import { overTimeDaypicker } from "./selectOvertimedays";
 export function AdminComponent() {
   const user = useUser();
   const setUser = useSetUser();
@@ -29,6 +30,23 @@ export function AdminComponent() {
         {" "}
         Overtime Opt In{" "}
       </button>
+      <div>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={overTimeDaypicker}
+        >
+          Nights Only
+        </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={setOvertimeBtn}
+        >
+          {" "}
+          Overtime Opt In{" "}
+        </button>
+      </div>
     </div>
   );
 }
