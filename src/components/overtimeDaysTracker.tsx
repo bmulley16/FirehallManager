@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 
-export const overTimeDaypicker = () => {
+export const shiftTracker = () => {
   const SHIFT_LENGTH = 96;
   const PLATOONS = ["A", "B", "C", "D"];
   const currentDateTime = DateTime.now();
@@ -18,11 +18,4 @@ export const overTimeDaypicker = () => {
   const nextShiftStartTime = currentDateTime.plus({
     hours: SHIFT_LENGTH - (elapsedHours % SHIFT_LENGTH),
   });
-
-  // const futureShifts = [];
-  // for (let i = 1; i <= NUM_FUTURE_SHIFTS; i++) {
-  //   const futureShiftStartTime = nextShiftStartTime.plus({ hours: i * SHIFT_LENGTH });
-  //   const futureShiftPlatoon = PLATOONS[(currentShiftIndex + i) % PLATOONS.length];
-  //   futureShifts.push({ startTime: futureShiftStartTime, platoon: futureShiftPlatoon });
-  // }
 };

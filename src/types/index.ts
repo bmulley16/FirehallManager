@@ -20,7 +20,15 @@ export interface User {
   firstName: string;
   lastName: string;
   employeeNumber: number;
-  overtime: boolean;
+  overtime:
+    | {
+        nightShift: boolean;
+        emergencyCallback: boolean;
+        twelveHourCallback: boolean;
+        fourHourCallback: boolean;
+        lessThanTwelveHour: boolean;
+      }
+    | boolean;
   platoon: string;
 }
 
