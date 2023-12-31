@@ -12,6 +12,14 @@ export interface PlatoonSchedule {
 //type alias
 export type UserId = string;
 
+interface Overtime {
+  nightShift: boolean;
+  emergencyCallback: boolean;
+  twelveHourCallback: boolean;
+  fourHourCallback: boolean;
+  lessThanTwelveHour: boolean;
+}
+
 export interface User {
   id: UserId;
   username: string;
@@ -20,15 +28,7 @@ export interface User {
   firstName: string;
   lastName: string;
   employeeNumber: number;
-  overtime:
-    | {
-        nightShift: boolean;
-        emergencyCallback: boolean;
-        twelveHourCallback: boolean;
-        fourHourCallback: boolean;
-        lessThanTwelveHour: boolean;
-      }
-    | boolean;
+  overtime: Partial<Overtime>;
   platoon: string;
 }
 

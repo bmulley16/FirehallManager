@@ -11,6 +11,8 @@ export function signUp({
   lastName,
   phone,
   employeeNumber,
+  overtime,
+
   platoon,
 }: User): User {
   const users = localStorage.getItem("users");
@@ -24,7 +26,13 @@ export function signUp({
     lastName: lastName,
     phone: phone,
     employeeNumber: employeeNumber,
-    overtime: false,
+    overtime: {
+      nightShift: overtime.nightShift,
+      emergencyCallback: overtime.emergencyCallback,
+      twelveHourCallback: overtime.twelveHourCallback,
+      fourHourCallback: overtime.fourHourCallback,
+      lessThanTwelveHour: overtime.lessThanTwelveHour,
+    },
     platoon: platoon,
   };
 
