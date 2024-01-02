@@ -12,6 +12,10 @@ export function signUp({
   phone,
   employeeNumber,
   overtime,
+  nightShift,
+  fourHourCallBack,
+  dayShift,
+  emergencyCallback,
 
   platoon,
 }: User): User {
@@ -26,13 +30,11 @@ export function signUp({
     lastName: lastName,
     phone: phone,
     employeeNumber: employeeNumber,
-    overtime: {
-      nightShift: overtime.nightShift,
-      emergencyCallback: overtime.emergencyCallback,
-      twelveHourCallback: overtime.twelveHourCallback,
-      fourHourCallback: overtime.fourHourCallback,
-      lessThanTwelveHour: overtime.lessThanTwelveHour,
-    },
+    overtime: overtime,
+    nightShift: nightShift,
+    fourHourCallBack,
+    dayShift,
+    emergencyCallback,
     platoon: platoon,
   };
 
@@ -96,38 +98,3 @@ export function getEmployees(): User[] {
 
   return storedEmployeeNames;
 }
-
-// SERVER
-// function onRequest(request) {
-//   const method = request.httpMethod;
-//   const path = request.path;
-//   const params = request.params;
-
-//   if (path === "/announcements") {
-//     if (method === "GET") {
-//       return getAllAnnouncements(params);
-//     }
-//   }
-// }
-
-// function getAllAnnouncements() {
-//   const results = db.get("people");
-
-//   return results;
-// }
-
-// /*
-// ANNOUNCEMENTS
-// - id: 1, date: today, text: hello
-// - id: 2, date: yesterday, text: world
-
-// USERS
-//  - blah
-
-// */
-
-// // locally, results.filter()
-// // backend, dbResults.filter(), GET /announcements?startDate=today&endDate=yesterday
-// // database, SELECT * FROM ANNOUNCEMENTS WHERE DATE <= yesterday
-
-// // add announcement "today was a good day"

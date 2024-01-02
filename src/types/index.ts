@@ -28,7 +28,11 @@ export interface User {
   firstName: string;
   lastName: string;
   employeeNumber: number;
-  overtime: Partial<Overtime>;
+  overtime: boolean;
+  nightShift: boolean;
+  fourHourCallBack: boolean;
+  dayShift: boolean;
+  emergencyCallback: boolean;
   platoon: string;
 }
 
