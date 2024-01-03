@@ -4,13 +4,15 @@ export const shiftTracker = () => {
   const SHIFT_LENGTH = 96;
   const PLATOONS = ["A", "B", "C", "D"];
   const currentDateTime = DateTime.now();
-  const initialDateTime = DateTime.local(2023, 12, 26, 8, 0o0);
+  const initialDateTime = DateTime.local(2024, 1, 0o3, 8, 0o0);
 
   const elapsedHours = currentDateTime.diff(initialDateTime, ["hour"]).hours;
+  const elapsedWithinCycle = elapsedHours % SHIFT_LENGTH;
   console.log(elapsedHours);
 
-  const currentShiftIndex =
-    Math.round(SHIFT_LENGTH / elapsedHours) % PLATOONS.length;
+  const currentShiftIndex = Math.floor(
+    elapsedWithinCycle / (SHIFT_LENGTH / PLATOONS.length)
+  );
 
   const currentPlatoon = PLATOONS[currentShiftIndex];
   console.log(currentShiftIndex, currentPlatoon);
