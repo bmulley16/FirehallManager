@@ -51,6 +51,46 @@ export function AdminComponent() {
     }
   };
 
+  const addToAPlatoon = () => {
+    if (!user) {
+      return;
+    }
+
+    setUser({
+      ...user,
+      platoon: "A",
+    });
+  };
+  const addToBPlatoon = () => {
+    if (!user) {
+      return;
+    }
+
+    setUser({
+      ...user,
+      platoon: "B",
+    });
+  };
+  const addToCPlatoon = () => {
+    if (!user) {
+      return;
+    }
+
+    setUser({
+      ...user,
+      platoon: "C",
+    });
+  };
+  const addToDPlatoon = () => {
+    if (!user) {
+      return;
+    }
+
+    setUser({
+      ...user,
+      platoon: "C",
+    });
+  };
   return (
     <div className=" w-72 h-100 bg-white flex flex-col items-center">
       <h1 className="font-bold">Overtime Toggle Button </h1>
@@ -104,6 +144,34 @@ export function AdminComponent() {
           onClick={setOvertimeFourHourCallBAckOption}
         >
           Four Hour Overtime
+        </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={addToAPlatoon}
+        >
+          Add user to A platoon
+        </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={addToBPlatoon}
+        >
+          Add user to B platoon
+        </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={addToBPlatoon}
+        >
+          Add user to C platoon
+        </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={addToBPlatoon}
+        >
+          Add user to D platoon
         </button>
       </div>
     </div>
