@@ -104,6 +104,14 @@ const router = createBrowserRouter([
 function Main() {
   const [user, setUser] = useState<User | null>(null);
 
+  const updateUser = (user: User | null) => {
+    setUser(user);
+
+    if (user) {
+      api.updateUser(user);
+    }
+  };
+
   useEffect(() => {
     const loggedInUser = getLoggedInUser();
     if (loggedInUser != null) {
@@ -118,7 +126,7 @@ function Main() {
   return (
     <React.StrictMode>
       <UserContext.Provider value={user}>
-        <SetUserContext.Provider value={setUser}>
+        <SetUserContext.Provider value={updateUser}>
           <RouterProvider router={router} />
           {/* <App /> */}
         </SetUserContext.Provider>

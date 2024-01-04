@@ -4,7 +4,7 @@ export const shiftTracker = () => {
   const SHIFT_LENGTH = 96;
   const PLATOONS = ["A", "B", "C", "D"];
   const currentDateTime = DateTime.now();
-  const initialDateTime = DateTime.local(2024, 1, 0o3, 8, 0o0);
+  const initialDateTime = DateTime.local(2024, 1, 3, 8);
 
   const elapsedHours = currentDateTime.diff(initialDateTime, ["hour"]).hours;
   const elapsedWithinCycle = elapsedHours % SHIFT_LENGTH;

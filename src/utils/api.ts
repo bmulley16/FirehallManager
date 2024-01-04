@@ -92,9 +92,27 @@ export function getLoggedInUser(): User | null {
 // uuid
 
 export function getEmployees(): User[] {
-  const storedEmployeeNames = JSON.parse(
-    localStorage.getItem("employeeNames") ?? "[]"
-  );
+  const storedEmployeeNames = JSON.parse(localStorage.getItem("users") ?? "[]");
 
   return storedEmployeeNames;
 }
+
+export function updateUser(user: User) {
+  const employees = getEmployees();
+
+  const userIdx = employees.findIndex((employee) => employee.id === user.id);
+
+  if (userIdx === -1) return;
+
+  employees[userIdx] = user;
+
+  localStorage.setItem("users", JSON.stringify(employees));
+}
+
+const dPlatoon = getEmployees()
+  .filter((empl) => empl.platoon === "D")
+  .filter((em) => em.overtime);
+
+let numToFulfilled = 2;
+
+while (numToFulfilled !== 0) {}
