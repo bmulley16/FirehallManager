@@ -60,7 +60,7 @@ export function AdminComponent() {
       ...user,
    platoon,
     });
-
+  }
   return (
     <div className=" w-72 h-100 bg-white flex flex-col items-center">
       <h1 className="font-bold">Overtime Toggle Button </h1>
@@ -147,4 +147,4 @@ export function AdminComponent() {
     </div>
   );
   }
-}
+
