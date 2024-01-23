@@ -51,46 +51,16 @@ export function AdminComponent() {
     }
   };
 
-  const addToAPlatoon = () => {
+  const addToPlatoon = (platoon: string) => {
     if (!user) {
       return;
     }
 
     setUser({
       ...user,
-      platoon: "A",
+   platoon,
     });
-  };
-  const addToBPlatoon = () => {
-    if (!user) {
-      return;
-    }
 
-    setUser({
-      ...user,
-      platoon: "B",
-    });
-  };
-  const addToCPlatoon = () => {
-    if (!user) {
-      return;
-    }
-
-    setUser({
-      ...user,
-      platoon: "C",
-    });
-  };
-  const addToDPlatoon = () => {
-    if (!user) {
-      return;
-    }
-
-    setUser({
-      ...user,
-      platoon: "C",
-    });
-  };
   return (
     <div className=" w-72 h-100 bg-white flex flex-col items-center">
       <h1 className="font-bold">Overtime Toggle Button </h1>
@@ -148,32 +118,33 @@ export function AdminComponent() {
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          onClick={addToAPlatoon}
+          onClick= {() => addToPlatoon("A")}
         >
           Add user to A platoon
         </button>
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          onClick={addToBPlatoon}
+          onClick={() => addToPlatoon("B")}
         >
           Add user to B platoon
         </button>
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          onClick={addToBPlatoon}
+          onClick={() => addToPlatoon("C")}
         >
           Add user to C platoon
         </button>
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          onClick={addToBPlatoon}
+          onClick={() => addToPlatoon("D")}
         >
           Add user to D platoon
         </button>
       </div>
     </div>
   );
+  }
 }

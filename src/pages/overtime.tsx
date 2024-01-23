@@ -21,6 +21,7 @@ export function OvertimePage() {
     setUser({
       ...user,
       overtime: !user.overtime,
+    
     });
   };
 
