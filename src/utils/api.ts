@@ -108,12 +108,25 @@ export function updateUser(user: User) {
   employees[userIdx] = user;
 
   localStorage.setItem("users", JSON.stringify(employees));
+
 }
+const overtimeLogic: () => any = () => {
+  const dPlatoonOvertimeCallback = getEmployees()
+    .filter((empl) => empl.platoon === "D")
+    .filter((em) => em.overtime);
 
-// const dPlatoon = getEmployees()
-//   .filter((empl) => empl.platoon === "D")
-//   .filter((em) => em.overtime);
+  const employeeNamesArray = dPlatoonOvertimeCallback.map((emply) => emply.firstName + " " + emply.lastName);
+  const alphbeticallySortedEmployeeNames = employeeNamesArray.sort();
 
-// let numToFulfilled = 2;
 
-// while (numToFulfilled !== 0) {}
+
+  let numToFulfilled = 2;
+
+  while (numToFulfilled !== 0) {
+
+  
+  }
+
+
+  return 
+};

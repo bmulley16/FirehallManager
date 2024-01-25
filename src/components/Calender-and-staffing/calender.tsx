@@ -31,6 +31,7 @@ export default function Calender() {
 
   const daysInMonth = currentDatetime.daysInMonth;
   const renderDaysInMonth = () => {
+    const navigate = useNavigate();
     const shiftColors = [
       "bg-blue-400",
       "bg-green-400",
@@ -41,7 +42,7 @@ export default function Calender() {
       const cells = [];
       // fix the i = 1 to the difference in time
       for (let i = 1; i <= daysInMonth; i++) {
-        const navigate = useNavigate();
+        
         // add iterator ontop of the first of month maths
         const shiftIndex = i % 4;
         const color = shiftColors[shiftIndex];
