@@ -43,13 +43,13 @@ function Signup() {
   const createdAccounts = function storingCreatedAccounts() {
     localStorage.setItem(
       "users",
-      JSON.stringify({
+      JSON.stringify([{
         username: usernameinputValue,
         password: passwordInputValue,
         id: " ",
         firstname: FirstNameInputValue,
         lastname: LastNameInputValue,
-      })
+      }])
     );
   };
 

@@ -79,6 +79,8 @@ export function setLoggedInUser(id: User["id"] | null) {
 export function getLoggedInUser(): User | null {
   const loggedInUserId = localStorage.getItem("loggedInUser");
   const users = localStorage.getItem("users");
+  console.log('users in api: ', users)
+
   if (users === null) {
     return null;
   } else {
@@ -92,7 +94,7 @@ export function getLoggedInUser(): User | null {
 // uuid
 
 export function getEmployees(): User[] {
-  const storedEmployeeNames = JSON.parse(localStorage.getItem("users") ?? "[]");
+  const storedEmployeeNames = JSON.parse(localStorage.getItem("users") ?? "[]") as User[];
 
   return storedEmployeeNames;
 }
@@ -100,19 +102,25 @@ export function getEmployees(): User[] {
 export function updateUser(user: User) {
   const employees = getEmployees();
 
+  console.log('employees: ', employees)
+
   const userIdx = employees.findIndex((employee) => employee.id === user.id);
+
+  console.log('user idx: ', userIdx)
 
   if (userIdx === -1) return;
 
   employees[userIdx] = user;
 
+  console.log('employees: ', employees)
+
   localStorage.setItem("users", JSON.stringify(employees));
 }
 
-const dPlatoon = getEmployees()
-  .filter((empl) => empl.platoon === "D")
-  .filter((em) => em.overtime);
+// const dPlatoon = getEmployees()
+//   .filter((empl) => empl.platoon === "D")
+//   .filter((em) => em.overtime);
 
-let numToFulfilled = 2;
+// let numToFulfilled = 2;
 
-while (numToFulfilled !== 0) {}
+// while (numToFulfilled !== 0) {}
