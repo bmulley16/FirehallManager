@@ -15,7 +15,7 @@ export const shiftTracker = (currentDateTime: any) => {
   );
 
   const currentPlatoon = PLATOONS[currentShiftIndex];
-
+console.log("Current Platoon:", currentPlatoon);
   const nextShiftStartTime = currentDateTime.plus({
     hours: SHIFT_LENGTH - (elapsedHours % SHIFT_LENGTH),
   });
@@ -24,14 +24,25 @@ export const shiftTracker = (currentDateTime: any) => {
     hours: elapsedHours % SHIFT_LENGTH,
   });
 
-  const shiftOrder = [];
-  for (let i = 0; i < PLATOONS.length/4; i++) {
-    const oppositeIndex = (i + PLATOONS.length / 2) % PLATOONS.length;
-    console.log("Opposite Index:", oppositeIndex);
-    shiftOrder.push(PLATOONS[oppositeIndex], PLATOONS[oppositeIndex + 1], PLATOONS[oppositeIndex - 1]);
+  const shiftOrder = [];  
+
+  shiftOrder.push(PLATOONS[(currentShiftIndex + PLATOONS.length / 2) % PLATOONS.length]);
+
+  for (let i = 1; i <= 1; i++) {
+    const nextShiftIndex = (currentShiftIndex + i) % PLATOONS.length;
+    shiftOrder.push(PLATOONS[nextShiftIndex]);
   }
+  
+  shiftOrder.push(PLATOONS[(currentShiftIndex + PLATOONS.length - 1) % PLATOONS.length]);
+
+
 
   console.log("Shift Order:", shiftOrder);
+  
+
+
+
+
 
   return {
     currentPlatoon,
@@ -42,17 +53,21 @@ export const shiftTracker = (currentDateTime: any) => {
   };
 };
 
+
+
+
+
 const trackedShift = shiftTracker(currentDateTime);
 
 
 
-const callbackShifts = trackedShift.shiftOrder;
-console.log("Callback Shifts Order:", callbackShifts);
+// const callbackShifts = trackedShift.shiftOrder;
+// // console.log("Callback Shifts Order:", callbackShifts);s
 
-for (const shift of callbackShifts) {
-  console.log("Calling shift:", shift);
-}
+// for (const shift of callbackShifts) {
+//   console.log("Calling shift:", shift);
+// }
 
-const testShift = shiftTracker(DateTime.local(2024, 2, 1, 8, 0));
+// const testShift = shiftTracker(DateTime.local(2024, 2, 1, 8, 0));
 
-console.log(testShift);
+// // console.log(testShift);
