@@ -120,7 +120,7 @@ function Main() {
     }
   }, []);
 
-  console.log("User ", user);
+
 
   return (
     <React.StrictMode>

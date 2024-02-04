@@ -2,7 +2,12 @@ import { User } from "../types";
 import { UserId } from "../types";
 //@ts-ignore
 import { v4 as uuid } from "uuid";
+import { shiftTracker } from "../components/Calender-and-staffing/shiftTracker";
+import { DateTime } from "luxon";
 
+
+const CurrentDAteTime = DateTime.now()
+console.log(CurrentDAteTime)
 //TODO update parameter to take a User object
 export function signUp({
   username,
@@ -79,11 +84,11 @@ export function setLoggedInUser(id: User["id"] | null) {
 export function getLoggedInUser(): User | null {
   const loggedInUserId = localStorage.getItem("loggedInUser");
   const users = localStorage.getItem("users");
+
   if (users === null) {
     return null;
   } else {
     const usersArray: User[] = JSON.parse(users);
-    console.log(usersArray)
     const user = usersArray.find((user) => user.id === loggedInUserId);
     return user ? user : null;
   }
@@ -93,7 +98,7 @@ export function getLoggedInUser(): User | null {
 // uuid
 
 export function getEmployees(): User[] {
-  const storedEmployeeNames = JSON.parse(localStorage.getItem("users") ?? "[]");
+  const storedEmployeeNames = JSON.parse(localStorage.getItem("users") ?? "[]") as User[];
 
   return storedEmployeeNames;
 }
@@ -108,25 +113,74 @@ export function updateUser(user: User) {
   employees[userIdx] = user;
 
   localStorage.setItem("users", JSON.stringify(employees));
-
 }
-const overtimeLogic: () => any = () => {
-  const dPlatoonOvertimeCallback = getEmployees()
+
+
+
+
+const OvertimeLogic = () => {
+
+const shiftUtils = shiftTracker(CurrentDAteTime);
+console.log(shiftUtils)
+
+const callbackOrder =  shiftUtils.shiftCallBackOrder
+console.log(callbackOrder)
+
+  const APlatoon = getEmployees()
+    .filter((empl) => empl.platoon === "A")
+    .filter((em) => em.overtime);
+  const BPlatoon = getEmployees()
+    .filter((empl) => empl.platoon === "B")
+    .filter((em) => em.overtime);
+  const CPlatoon = getEmployees()
+    .filter((empl) => empl.platoon === "C")
+    .filter((em) => em.overtime);
+  const dPlatoon = getEmployees()
     .filter((empl) => empl.platoon === "D")
     .filter((em) => em.overtime);
 
-  const employeeNamesArray = dPlatoonOvertimeCallback.map((emply) => emply.firstName + " " + emply.lastName);
-  const alphbeticallySortedEmployeeNames = employeeNamesArray.sort();
+  /**
+   * - Get next eligble platoon
+   * - Sort
+   * - Find the last called person in that platoon
+   * - Start looping from lastCalled + 1, until we arrive at lastCalled
+   * - If no one is found, repeat with next eliglbe platoon
+   */
+
+// let lastCalled = dPlatoon.filter((empl) => empl.lastCalled === true);
+
+
+//   const employeeNames = dPlatoon.map((empl) => empl.firstName + " " + empl.lastName);
 
 
 
-  let numToFulfilled = 2;
+//   const alphabeticallySorted = employeeNames.sort();
 
-  while (numToFulfilled !== 0) {
+
+
+// let numToFulfilled = 2
+
+// while (numToFulfilled !== 0) {
 
   
-  }
+// }
+}
 
+OvertimeLogic();
 
-  return 
-};
+/**
+ * Getting last called person, and shifting array to being looping at item 0
+ */
+// const employees: string[] = [
+//   'a',
+//   'b',
+//   'c',
+//   'd',
+//   'e'
+// ]
+// const lastCalled = 2
+
+// const splicedItems = employees.splice(lastCalled, employees.length - lastCalled - 1)
+// employees.unshift(...splicedItems);
+
+// employees.forEach(emp => console.log(emp))
