@@ -1,8 +1,10 @@
 import * as api from "../utils/api";
 import { useUser } from "../hooks";
 import { useSetUser } from "../hooks";
-import { shiftTracker } from "./Calender-and-staffing/shiftTracker";
+import { useNavigate } from "react-router-dom"; 
+
 export function AdminComponent() {
+  const navigate = useNavigate(); 
   const user = useUser();
   const setUser = useSetUser();
 
@@ -17,6 +19,20 @@ export function AdminComponent() {
       ...user,
       overtime: !user.overtime,
     });
+  };
+  const setFirsttoBeCalled = () => {
+    console.log("user: ", user);
+    if (!user) {
+      return;
+    }
+    console.log(user.firstToBeCalled);
+
+    setUser({
+      ...user,
+      firstToBeCalled: !user.firstToBeCalled,
+    });
+
+    return; // Add a return statement here
   };
 
   const setOvertimeNightShiftOption = () => {
@@ -58,9 +74,14 @@ export function AdminComponent() {
 
     setUser({
       ...user,
-   platoon,
+      platoon,
     });
-  }
+  };
+
+  // const overtimeCallBAckAmmountsPageRender = () => {
+  //  navigate("/Overtime/CallBackCounts");
+  // };
+
   return (
     <div className=" w-72 h-100 bg-white flex flex-col items-center">
       <h1 className="font-bold">Overtime Toggle Button </h1>
@@ -90,7 +111,7 @@ export function AdminComponent() {
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          onClick={shiftTracker}
+          // onClick={shiftTracker}
         >
           shift tracker
         </button>
@@ -118,7 +139,7 @@ export function AdminComponent() {
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          onClick= {() => addToPlatoon("A")}
+          onClick={() => addToPlatoon("A")}
         >
           Add user to A platoon
         </button>
@@ -143,8 +164,22 @@ export function AdminComponent() {
         >
           Add user to D platoon
         </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={setFirsttoBeCalled}
+        >
+          Set User to Be First Called
+        </button>
+        <button
+          className=" font-bold w-60 h-11 bg-black text-white"
+          type="submit"
+          onClick={() => navigate("/overtime/CallBackCounts")}
+        >
+          Set Overtime Call Back Amount
+        </button>
       </div>
     </div>
   );
-  }
+}
 

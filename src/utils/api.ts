@@ -2,12 +2,11 @@ import { User } from "../types";
 import { UserId } from "../types";
 //@ts-ignore
 import { v4 as uuid } from "uuid";
-import { shiftTracker } from "../components/Calender-and-staffing/shiftTracker";
+
 import { DateTime } from "luxon";
 
-
-const CurrentDAteTime = DateTime.now()
-console.log(CurrentDAteTime)
+const CurrentDAteTime = DateTime.now();
+console.log(CurrentDAteTime);
 //TODO update parameter to take a User object
 export function signUp({
   username,
@@ -41,6 +40,7 @@ export function signUp({
     dayShift,
     emergencyCallback,
     platoon: platoon,
+    firstToBeCalled: false,
   };
 
   const newUsers = [...parsedUsers, user];
@@ -98,7 +98,9 @@ export function getLoggedInUser(): User | null {
 // uuid
 
 export function getEmployees(): User[] {
-  const storedEmployeeNames = JSON.parse(localStorage.getItem("users") ?? "[]") as User[];
+  const storedEmployeeNames = JSON.parse(
+    localStorage.getItem("users") ?? "[]"
+  ) as User[];
 
   return storedEmployeeNames;
 }
@@ -115,58 +117,115 @@ export function updateUser(user: User) {
   localStorage.setItem("users", JSON.stringify(employees));
 }
 
+export const OvertimeLogic = (overtimeType: string): User[] => {
+  const shiftUtils = shiftTracker();
+  console.log(shiftUtils);
+
+  const firstShift = shiftUtils.shiftCallBackOrder[0];
+  console.log(firstShift);
+  const secondShift = shiftUtils.shiftCallBackOrder[1];
+  console.log(secondShift);
+  const thirdShift = shiftUtils.shiftCallBackOrder[2];
+  console.log(thirdShift);
+
+
+  const platoonRendering = (shiftindex:string) => {
+    const platoon = getEmployees().filter(
+      (e) => e.platoon === shiftindex && e.overtime
+    );
+
+    platoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+    const firstToBeCalledIdx = platoon.findIndex((e) => e.firstToBeCalled);
+
+    const splicedItems = platoon.splice(
+      firstToBeCalledIdx,
+      platoon.length - firstToBeCalledIdx - 1
+    );
+    platoon.unshift(...splicedItems);
+
+    return platoon;
+  };
+
+return(platoonRendering(firstShift),
+platoonRendering(secondShift),
+platoonRendering(thirdShift))
+
+};
+
+const shiftTracker = (currentDateTime = DateTime.now()) => {
+  const SHIFT_LENGTH = 96;
+  const PLATOONS = ["A", "B", "C", "D"];
+  const initialDateTime = DateTime.local(2024, 1, 3, 8, 0);
+
+  const elapsedHours = currentDateTime.diff(initialDateTime, ["hour"]).hours;
+  const elapsedWithinCycle = elapsedHours % SHIFT_LENGTH;
+
+  const currentShiftIndex = Math.floor(
+    elapsedWithinCycle / (SHIFT_LENGTH / PLATOONS.length)
+  );
+
+  const currentPlatoon = PLATOONS[currentShiftIndex];
+
+  const nextShiftStartTime = currentDateTime.plus({
+    hours: SHIFT_LENGTH - (elapsedHours % SHIFT_LENGTH),
+  });
+
+  const previousShiftStartTime = currentDateTime.minus({
+    hours: elapsedHours % SHIFT_LENGTH,
+  });
+
+  const shiftCallBackOrder = [];
+
+  shiftCallBackOrder.push(
+    PLATOONS[(currentShiftIndex + PLATOONS.length / 2) % PLATOONS.length]
+  );
+
+  for (let i = 1; i <= 1; i++) {
+    const nextShiftIndex = (currentShiftIndex + i) % PLATOONS.length;
+    shiftCallBackOrder.push(PLATOONS[nextShiftIndex]);
+  }
+
+  shiftCallBackOrder.push(
+    PLATOONS[(currentShiftIndex + PLATOONS.length - 1) % PLATOONS.length]
+  );
+
+  return {
+    currentPlatoon,
+    elapsedWithinCycle,
+    nextShiftStartTime,
+    previousShiftStartTime,
+    shiftCallBackOrder,
+  };
+};
 
 
 
-const OvertimeLogic = () => {
 
-const shiftUtils = shiftTracker(CurrentDAteTime);
-console.log(shiftUtils)
 
-const callbackOrder =  shiftUtils.shiftCallBackOrder
-console.log(callbackOrder)
 
-  const APlatoon = getEmployees()
-    .filter((empl) => empl.platoon === "A")
-    .filter((em) => em.overtime);
-  const BPlatoon = getEmployees()
-    .filter((empl) => empl.platoon === "B")
-    .filter((em) => em.overtime);
-  const CPlatoon = getEmployees()
-    .filter((empl) => empl.platoon === "C")
-    .filter((em) => em.overtime);
-  const dPlatoon = getEmployees()
-    .filter((empl) => empl.platoon === "D")
-    .filter((em) => em.overtime);
-
-  /**
-   * - Get next eligble platoon
-   * - Sort
-   * - Find the last called person in that platoon
-   * - Start looping from lastCalled + 1, until we arrive at lastCalled
-   * - If no one is found, repeat with next eliglbe platoon
-   */
+/**
+ * - Get next eligble platoon
+ * - Sort
+ * - Find the last called person in that platoon
+ * - Start looping from lastCalled + 1, until we arrive at lastCalled
+ * - If no one is found, repeat with next eliglbe platoon
+ * fix the first to be called to be off of the user object
+ */
 
 // let lastCalled = dPlatoon.filter((empl) => empl.lastCalled === true);
 
-
 //   const employeeNames = dPlatoon.map((empl) => empl.firstName + " " + empl.lastName);
 
-
-
 //   const alphabeticallySorted = employeeNames.sort();
-
-
 
 // let numToFulfilled = 2
 
 // while (numToFulfilled !== 0) {
 
-  
 // }
-}
 
-OvertimeLogic();
+
 
 /**
  * Getting last called person, and shifting array to being looping at item 0

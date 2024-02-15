@@ -24,6 +24,7 @@ import { StationInventories } from "./pages/stationInventory.tsx";
 import { DriverCheckSheet } from "./pages/driverCheckSheet.tsx";
 import { getLoggedInUser } from "./utils/api.ts";
 import * as api from "./utils/api.ts";
+import { EditShiftCallInPage } from "./pages/editShiftCallInPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -74,12 +75,6 @@ const router = createBrowserRouter([
     path: `/mess-managment`,
     element: <MessManagment />,
   },
-
-  {
-    path: `/overtime/daily-overview`,
-    element: <DailyOnClickComponent />,
-  },
-
   {
     path: `/signup`,
     element: <SignUpPage />,
@@ -98,6 +93,14 @@ const router = createBrowserRouter([
   {
     path: `/inventories/driver-checklist`,
     element: <DriverCheckSheet />,
+  },
+  {
+    path: `/overtime/daily-overview`,
+    element: <DailyOnClickComponent />,
+  },
+  {
+    path: `/overtime/CallBackCounts`,
+    element: <EditShiftCallInPage />,
   },
 ]);
 
