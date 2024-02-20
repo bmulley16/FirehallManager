@@ -34,6 +34,7 @@ export interface User {
   dayShift: boolean;
   emergencyCallback: boolean;
   platoon: string;
+  firstToBeCalled: boolean;
 }
 
 export interface UserQualifications {

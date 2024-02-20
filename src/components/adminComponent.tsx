@@ -111,9 +111,9 @@ export function AdminComponent() {
         <button
           className=" font-bold w-60 h-11 bg-black text-white"
           type="submit"
-          // onClick={shiftTracker}
+          onClick={() => { navigate("/overtime/order-display")}}
         >
-          shift tracker
+     Overtime Order Page 
         </button>
         <button
           className=" font-bold w-60 h-11 bg-black text-white"

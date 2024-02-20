@@ -25,7 +25,7 @@ import { DriverCheckSheet } from "./pages/driverCheckSheet.tsx";
 import { getLoggedInUser } from "./utils/api.ts";
 import * as api from "./utils/api.ts";
 import { EditShiftCallInPage } from "./pages/editShiftCallInPage.tsx";
-
+import { OvertimeOrderDisplay } from "./pages/overtimeOrderPage.tsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -101,6 +101,10 @@ const router = createBrowserRouter([
   {
     path: `/overtime/CallBackCounts`,
     element: <EditShiftCallInPage />,
+  },
+  {
+    path: `/overtime/order-display`,
+    element: <OvertimeOrderDisplay/>,
   },
 ]);
 

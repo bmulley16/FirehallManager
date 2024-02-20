@@ -21,6 +21,14 @@ export function EditShiftCallInPage() {
         });
       };
     
+
+      const setStaffingDatatoLocalStorage = () => {
+
+        const staffingDataStringify = JSON.stringify(staffingData);
+        localStorage.setItem('staffingData', staffingDataStringify);
+        
+        }
+      
       return (
         <div className="container mx-auto mt-8">
           <h1 className="text-4xl font-bold mb-4">Staffing Overtime Callbacks</h1>

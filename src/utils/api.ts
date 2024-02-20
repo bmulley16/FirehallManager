@@ -4,6 +4,7 @@ import { UserId } from "../types";
 import { v4 as uuid } from "uuid";
 
 import { DateTime } from "luxon";
+import { platform } from "os";
 
 const CurrentDAteTime = DateTime.now();
 console.log(CurrentDAteTime);
@@ -117,21 +118,14 @@ export function updateUser(user: User) {
   localStorage.setItem("users", JSON.stringify(employees));
 }
 
-export const OvertimeLogic = (overtimeType: string): User[] => {
+export const OvertimeLogic = (overtimeType: string, shift: string): User[] => {
   const shiftUtils = shiftTracker();
-  console.log(shiftUtils);
 
-  const firstShift = shiftUtils.shiftCallBackOrder[0];
-  console.log(firstShift);
-  const secondShift = shiftUtils.shiftCallBackOrder[1];
-  console.log(secondShift);
-  const thirdShift = shiftUtils.shiftCallBackOrder[2];
-  console.log(thirdShift);
+  const users = []
 
-
-  const platoonRendering = (shiftindex:string) => {
+  for (const shift of shiftUtils.shiftCallBackOrder ){
     const platoon = getEmployees().filter(
-      (e) => e.platoon === shiftindex && e.overtime
+      (e) => e.platoon === shift && e.overtime
     );
 
     platoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
@@ -144,14 +138,11 @@ export const OvertimeLogic = (overtimeType: string): User[] => {
     );
     platoon.unshift(...splicedItems);
 
-    return platoon;
+    users.push(...platoon)
   };
 
-return(platoonRendering(firstShift),
-platoonRendering(secondShift),
-platoonRendering(thirdShift))
-
-};
+  return users;
+}
 
 const shiftTracker = (currentDateTime = DateTime.now()) => {
   const SHIFT_LENGTH = 96;
