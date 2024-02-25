@@ -118,31 +118,6 @@ export function updateUser(user: User) {
   localStorage.setItem("users", JSON.stringify(employees));
 }
 
-export const OvertimeLogic = (overtimeType: string, shift: string): User[] => {
-  const shiftUtils = shiftTracker();
-
-  const users = []
-
-  for (const shift of shiftUtils.shiftCallBackOrder ){
-    const platoon = getEmployees().filter(
-      (e) => e.platoon === shift && e.overtime
-    );
-
-    platoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
-
-    const firstToBeCalledIdx = platoon.findIndex((e) => e.firstToBeCalled);
-
-    const splicedItems = platoon.splice(
-      firstToBeCalledIdx,
-      platoon.length - firstToBeCalledIdx - 1
-    );
-    platoon.unshift(...splicedItems);
-
-    users.push(...platoon)
-  };
-
-  return users;
-}
 
 const shiftTracker = (currentDateTime = DateTime.now()) => {
   const SHIFT_LENGTH = 96;
@@ -189,6 +164,35 @@ const shiftTracker = (currentDateTime = DateTime.now()) => {
     shiftCallBackOrder,
   };
 };
+
+
+
+export const OvertimeLogic = (): User[] => {
+  const shiftUtils = shiftTracker();
+
+  const users = []
+
+  for (const shift of shiftUtils.shiftCallBackOrder ){
+    const platoon = getEmployees().filter(
+      (e) => e.platoon === shift && e.overtime
+    );
+
+    platoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+    const firstToBeCalledIdx = platoon.findIndex((e) => e.firstToBeCalled);
+
+    const splicedItems = platoon.splice(
+      firstToBeCalledIdx,
+      platoon.length - firstToBeCalledIdx - 1
+    );
+    platoon.unshift(...splicedItems);
+
+    users.push(...platoon)
+  };
+
+  return users;
+}
+
 
 
 
