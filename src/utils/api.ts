@@ -170,27 +170,87 @@ const shiftTracker = (currentDateTime = DateTime.now()) => {
 export const OvertimeLogic = (): User[] => {
   const shiftUtils = shiftTracker();
 
-  const users = []
+  const dayShiftCallbackUsers = []
+
+  const nightShiftCallbackUsers = []
+
+  const fourHourCallBackusers = []
+
+  const emergencyCallbackusers = []
+
 
   for (const shift of shiftUtils.shiftCallBackOrder ){
-    const platoon = getEmployees().filter(
-      (e) => e.platoon === shift && e.overtime
+    const dayShiftPlatoon = getEmployees().filter(
+      (e) => e.platoon === shift && e.overtime && e.dayShift
+    );
+ 
+   
+   
+    dayShiftPlatoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+    const firstToBeCalledIdxDayShift = dayShiftPlatoon.findIndex((e) => e.firstToBeCalled);
+
+    const splicedItemsDaySHift = dayShiftPlatoon.splice(
+      firstToBeCalledIdxDayShift,
+      dayShiftPlatoon.length - firstToBeCalledIdxDayShift- 1
+    );
+    dayShiftCallbackUsers.unshift(...splicedItemsDaySHift);
+
+    dayShiftCallbackUsers.push(...dayShiftPlatoon)
+    
+
+    const nightShiftPlatoon = getEmployees().filter(
+      (e) => e.platoon === shift && e.overtime && e.nightShift
     );
 
-    platoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
+    nightShiftPlatoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
 
-    const firstToBeCalledIdx = platoon.findIndex((e) => e.firstToBeCalled);
+    const firstToBeCalledIdxNightShift = nightShiftPlatoon.findIndex((e) => e.firstToBeCalled);
 
-    const splicedItems = platoon.splice(
-      firstToBeCalledIdx,
-      platoon.length - firstToBeCalledIdx - 1
+    const nigthShiftPlatoonsplicedItems = nightShiftPlatoon.splice(
+     firstToBeCalledIdxNightShift,
+      nightShiftPlatoon.length - firstToBeCalledIdxNightShift - 1
     );
-    platoon.unshift(...splicedItems);
+    nightShiftPlatoon.unshift(...nigthShiftPlatoonsplicedItems);
 
-    users.push(...platoon)
+   nightShiftCallbackUsers.push(...nightShiftPlatoon)
+
+    const fourHourShiftPlatoon = getEmployees().filter(
+      (e) => e.platoon === shift && e.overtime && e.fourHourCallBack
+    );
+    fourHourShiftPlatoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+    const firstToBeCalledIdxFourHourShift = fourHourShiftPlatoon.findIndex((e) => e.firstToBeCalled);
+
+    const fourHourShiftPlatoonsplicedItems = fourHourShiftPlatoon.splice(
+     firstToBeCalledIdxFourHourShift,
+      fourHourShiftPlatoon.length - firstToBeCalledIdxFourHourShift - 1
+    );
+    fourHourShiftPlatoon.unshift(...fourHourShiftPlatoonsplicedItems);
+
+   fourHourCallBackusers.push(...fourHourShiftPlatoon)
+
+   const emergencyCallbackShiftPlatoon = getEmployees().filter(
+    (e) => e.platoon === shift && e.overtime && e.emergencyCallback
+  );
+
+  emergencyCallbackShiftPlatoon.sort((a, b) => a.lastName.localeCompare(b.lastName));
+
+  const firstToBeCalledIdxEmergencyCallbackShift = emergencyCallbackShiftPlatoon.findIndex((e) => e.firstToBeCalled);
+
+  const emergencyCallbackPlatoonsplicedItems = emergencyCallbackShiftPlatoon.splice(
+   firstToBeCalledIdxEmergencyCallbackShift,
+    emergencyCallbackShiftPlatoon.length - firstToBeCalledIdxEmergencyCallbackShift - 1
+  );
+  emergencyCallbackShiftPlatoon.unshift(...emergencyCallbackPlatoonsplicedItems);
+
+ fourHourCallBackusers.push(...emergencyCallbackShiftPlatoon)
+
   };
 
-  return users;
+  return ( nightShiftCallbackUsers
+  dayShiftCallbackUsers )
+
 }
 
 
