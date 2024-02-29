@@ -175,8 +175,10 @@ export const OvertimeLogic = (): User[] => {
   const nightShiftCallbackUsers = []
 
   const fourHourCallBackusers = []
+// come back and fix this here to change the type into something else other than any 
 
-  const emergencyCallbackusers = []
+
+  const emergencyCallbackusers:any = []
 
 
   for (const shift of shiftUtils.shiftCallBackOrder ){
@@ -248,8 +250,7 @@ export const OvertimeLogic = (): User[] => {
 
   };
 
-  return ( nightShiftCallbackUsers
-  dayShiftCallbackUsers )
+  return [nightShiftCallbackUsers, dayShiftCallbackUsers, emergencyCallbackusers, fourHourCallBackusers];
 
 }
 
