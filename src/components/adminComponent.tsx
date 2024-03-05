@@ -11,7 +11,7 @@ export function AdminComponent() {
   const setOvertimeBtn = () => {
     console.log("user: ", user);
     if (!user) {
-      return;
+      return user
     }
     console.log("overtime?: ", user.overtime);
 
@@ -23,7 +23,7 @@ export function AdminComponent() {
   const setFirsttoBeCalled = () => {
     console.log("user: ", user);
     if (!user) {
-      return;
+      return user
     }
     console.log(user.firstToBeCalled);
 
@@ -32,28 +32,32 @@ export function AdminComponent() {
       firstToBeCalled: !user.firstToBeCalled,
     });
 
-    return; // Add a return statement here
+    return; 
   };
 
   const setOvertimeNightShiftOption = () => {
     if (user?.overtime === true) {
       setUser({ ...user, nightShift: !user.nightShift });
     }
+    return user
   };
   const setOvertimeDayShiftOption = () => {
     if (user?.overtime === true) {
       setUser({ ...user, dayShift: !user.dayShift });
     }
+    return user
   };
   const setOvertimeEmergencyCallBackOption = () => {
     if (user?.overtime === true) {
       setUser({ ...user, emergencyCallback: !user.emergencyCallback });
     }
+    return user
   };
   const setOvertimeFourHourCallBAckOption = () => {
     if (user?.overtime === true) {
       setUser({ ...user, fourHourCallBack: !user.fourHourCallBack });
     }
+    return user
   };
   const setOvertimeEverything = () => {
     if (user?.overtime === true) {
@@ -65,17 +69,19 @@ export function AdminComponent() {
         nightShift: true,
       });
     }
+    return user
   };
 
   const addToPlatoon = (platoon: string) => {
     if (!user) {
-      return;
+      return
     }
 
     setUser({
       ...user,
       platoon,
     });
+    return user
   };
 
   // const overtimeCallBAckAmmountsPageRender = () => {
