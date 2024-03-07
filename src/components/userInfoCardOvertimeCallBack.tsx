@@ -9,9 +9,9 @@ export const UserInfoCard = (props: any) => {
   const users = dayshift || nightShift || emergencyCallback || fourHourCallBack || [];
 
   return (
-    <div>
+    <div className='max-w-full max-h-full overflow-y-auto'>
       {users.map((user: User, index: number) => (
-        <div key={index} className="mb-4 p-4 bg-gray-200 rounded">
+        <div key={index} className="mb-4 p-4 bg-slate-300 rounded flex-row ">
           <h2 className="text-lg font-semibold">{user.firstName} {user.lastName}</h2>
           <p className="text-gray-600">{user.phone}</p>
         </div>
