@@ -10,7 +10,7 @@ function Signup() {
   const [LastNameInputValue, setLastNameInputValue] = useState("");
   const [employeeNumberInputValue, setEmployeeNumberInputValue] = useState("");
   const [platoonSchedule, setPlatoonSchedule] = useState("");
-
+  const [phoneNumber, setPhoneNumber] = useState("")
   const setUser = useSetUser();
   const navigate = useNavigate();
 
@@ -39,6 +39,12 @@ function Signup() {
   ) => {
     setPlatoonSchedule(event.target.value);
   };
+  const updatePhoneNumber = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+  setPhoneNumber(event.target.value)
+     
+  };
 
   const createdAccounts = function storingCreatedAccounts() {
     localStorage.setItem(
@@ -49,6 +55,7 @@ function Signup() {
         id: " ",
         firstname: FirstNameInputValue,
         lastname: LastNameInputValue,
+        phoneNumber: phoneNumber
       }])
     );
   };
@@ -59,22 +66,27 @@ function Signup() {
     password: passwordInputValue,
     firstName: FirstNameInputValue,
     lastName: LastNameInputValue,
-    phone: "",
+    phone: phoneNumber,
     employeeNumber: 0,
     overtime: true,
     platoon: "",
+    nightShift: false,
+    fourHourCallBack: false,
+    dayShift: false,
+    emergencyCallback: false,
+    firstToBeCalled: false
   };
 
   const handleButtonClick = () => {
     const user = api.signUp(newUser);
 
-    // Set the user context
+   
     setUser(user);
 
-    // Set the current logged in user in local storage
+    
     api.setLoggedInUser(user.id);
 
-    // Redirect to the dashboard
+  
     navigate("/account");
   };
 
@@ -121,6 +133,15 @@ function Signup() {
             placeholder="Password"
             onChange={handleChangePassword}
             value={passwordInputValue}
+            className="input"
+          />
+
+          <input
+            type="phoneNumber"
+            id="phoneNumber"
+            placeholder="Phone Number"
+            onChange={updatePhoneNumber}
+            value={phoneNumber}
             className="input"
           />
 
