@@ -23,7 +23,7 @@ function ProfileButton(props: ProfileButtonProps) {
       <Link to="/login">
         <button
           type={props.buttontype}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mb-2"
+          className="bg-blue-500 hover:bg-blue-700 text-white text-xs font-bold py-1 px-2 rounded mt-10 mb-2 w-20 h-10"
           onClick={onClick}
         >
           {props.buttonText}

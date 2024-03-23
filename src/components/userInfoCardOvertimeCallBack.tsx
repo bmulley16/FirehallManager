@@ -11,9 +11,9 @@ export const UserInfoCard = (props: any) => {
   return (
     <div className='max-w-full max-h-full overflow-y-auto'>
       {users.map((user: User, index: number) => (
-        <div key={index} className="mb-4 p-4 bg-slate-300 rounded flex-row ">
+        <div key={index} className="mb-4 p-4 bg-slate-300 rounded flex justify-between">
           <h2 className="text-lg font-semibold">{user.firstName} {user.lastName}</h2>
-          <p className="text-gray-600">{user.phone}</p>
+          <p className="text-gray-600 ">{user.phone}</p>
         </div>
       ))}
     </div>
