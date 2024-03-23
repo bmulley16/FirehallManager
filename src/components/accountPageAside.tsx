@@ -11,7 +11,7 @@ export function ProfileAside() {
   const user = useUser();
 
   return (
-    <aside className=" h-full w-1/8 sticky">
+    <aside className=" h-full w-1/6 sticky">
       <ExpandedNavBar></ExpandedNavBar>
       {/* <CollapsedNavBar></CollapsedNavBar> */}
     </aside>

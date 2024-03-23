@@ -20,19 +20,18 @@ import {
 
 export function ExpandedNavBar() {
   const user = useUser();
-  const firstInitial = user?.firstName.charAt(0);
-  const lastInitial = user?.lastName.charAt(0);
+ const firstName = user?.firstName
+ const lastName = user?.lastName
   return (
-    <div className=" min-h-screen bg-grey flex flex-col justify-evenly items-center bg-gray-900 text-white ">
-      <div>
+    <div className=" min-h-screen w-full bg-grey flex flex-col justify-evenly items-center bg-gray-900 text-white ">
+      <div className="flex flex-col justify-between items-center">
         <FontAwesomeIcon
           icon={faCircleUser}
           size="2xl"
           className=" Hover:shadow-lg"
         />
         <h6>
-          {firstInitial}
-          {lastInitial}
+          {firstName} {''} {lastName}
         </h6>
       </div>
       <ul className="flex flex-col items-center justify-evenly h-96 min-w-full">
@@ -40,6 +39,7 @@ export function ExpandedNavBar() {
           path="/administration"
           icon={faFolder}
         ></CollspsedNavBarIconComponent>
+        
         <CollspsedNavBarIconComponent
           path="/equipment"
           icon={faShirt}
